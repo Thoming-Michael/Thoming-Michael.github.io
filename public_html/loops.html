@@ -22,16 +22,8 @@ and open the template in the editor.
         
         <script>
             function myLoopFunction() {
-                var colors = ["Red", "Yellow", "Blue", "Green", "Orange", "Pink"];
-                var text = "";
-                var i;
-                for (i = 0; i < colors.length; i++) {
-                    text += colors[i] + "<br>";
-                document.getElementByID("demo").innerHTML = text;    
-                }
-                
+                document.getElementById("demo").innerHTML = "Hello World"; 
             }
-            
         </script>
         
         <input type="button" onclick="window.location.href='https://thoming-michael.github.io/public_html/index.html';" value="Back to Main Menu"/>
