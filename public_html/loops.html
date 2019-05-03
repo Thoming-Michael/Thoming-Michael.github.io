@@ -16,13 +16,11 @@ and open the template in the editor.
         <p>Using a list variable that contains 6 different colors, this loop will <br>
            display them all</p>
         
-        <button onclick="myLoopFunction()">Click Me</button>
-        
-        <p id="loop"></p>
+        <p id="loop">Click me.</p>
         
         <script>
             function myLoopFunction() {
-                document.getElementByID("loop").onclick = function() {myLoopFunction()};
+                document.getElementByID("loop").onclick = function() {myLoopFunction();
                 var colors = ["Red", "Yellow", "Blue", "Green", "Orange", "Pink"];
                 var text = "";
                 var i;
