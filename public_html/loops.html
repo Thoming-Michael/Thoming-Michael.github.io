@@ -23,12 +23,11 @@ and open the template in the editor.
         <p id ="demo"></p>
                 
         <script>
-            var colors = ["Red", "Yellow", "Blue", "Green", "Orange", "Pink"];
-            
-            function myLoopFunction(colors) {
+            function myLoopFunction() {
+                var colors = ["Red", "Yellow", "Blue", "Green", "Orange", "Pink"];
                 var text = "";
                 var i;
-                for(i = 0; i < arguments.length; i++) {
+                for(i = 0; i < colors.length; i++) {
                     text += colors[i] + "<br>";
                 }
                 document.getElementById("demo").innerHTML = text;
