@@ -11,34 +11,38 @@ and open the template in the editor.
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
     <body>
-        <h1 id="message">Function example with Parameters & Conditional Statement</h1>
-        <p>This example analyzes the following list of words: <br>
-            red, green, longString, blue, purple, magenta <br><br>
-            It then finds the longest word in the list and displays it below: <br></p>
-        <p id="log"></p>
-        <script>
-            function log (msg) {
-                document.getElementById('log').innerHTML += msg + "\n";
+        
+        <script type = "text/javascript">
+            function doSomething(){
+                var csv = document.getElementById("userInput").value;
+                var stringVersion = processArrayString(csv);
+                var floatVersion = processArrayFloat(csv);
+                
+                document.getElementById('outputDiv').innerHTML = stringVersion + floatVersion;
+                
+            }
+
+            function processArrayString(someString){
+                var splitString = someString.split(", ");
+                return splitString;
             }
             
-            function longestWord(message){
-                log(message);
-                var i;
-                var word;
-                var longest = "";
-                for (i = 0; i < arguments.length; i++) {
-                    word = arguments[i];
-                    if(word.length > longest.length) {
-                        longest = word;
-                    }
+            function processArrayFloat(someString){
+                var splitFloat = someString.split(", ");
+                for (x in splitFloat){
+                    splitFloat[x] = parseFloat(splitFloat[x]);
                 }
-                return longest;
+                return splitFloat;
             }
-            
-            var result = longestWord("red", "green", "LongString", "blue"
-                , "purple", "magenta");
-            log(result)
+
         </script>
+        
+        Enter a string of words with a comma between each word (i.e. blue, red, green, purple) 
+        <input type="text" id="userInput"><br>
+        
+        <button type="button" onclick="doSomething()">Convert Input to Array</button> <br>
+        <div id="outputDiv"></div> <br>
+        
         <input type="button" onclick="window.location.href='https://thoming-michael.github.io/public_html/index.html';" value="Back to Main Menu"/>        
     </body>
 </html>
