@@ -14,15 +14,15 @@ and open the template in the editor.
         <div>Array Example</div>
         
 <script>
-var repeat, colors = [];
+    var repeat;
+    var colors = [];
 
-while(repeat !== 'n'){
-	colors.push(prompt('What are your favorite colors?'));
-    repeat = prompt('Would you like to add more colors to the list? y/n');
-	
-    document.write(colors + "<br />");
-    }
-document.getElementById("demo").innerHTML = colors;
+    while(repeat !== 'n'){
+        colors.push(prompt('What are your favorite colors?'));
+        repeat = prompt('Would you like to add more colors to the list? y/n');
+
+        document.write(colors + "<br />");
+        }
 </script>
         <input type="button" onclick="window.location.href='https://thoming-michael.github.io/public_html/index.html';" value="Back to Main Menu"/>
         
