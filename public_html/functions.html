@@ -11,7 +11,10 @@ and open the template in the editor.
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
     <body>
-        <h1 id="message">Log Output</h1>
+        <h1 id="message">Function example with Parameters & Conditional Statement</h1>
+        <p>This example analyzes the following list of words: <br>
+            red, green, longString, blue, purple, magenta <br><br>
+            It then finds the longest word in the list and displays it below: <br></p>
         <p id="log"></p>
         <script>
             function log (msg) {
@@ -32,7 +35,7 @@ and open the template in the editor.
                 return longest;
             }
             
-            var result = longestWord("red", "green", "LongString", "blue"
+            var result = longestWord("This is my message I want to log", "red", "green", "LongString", "blue"
                 , "purple", "magenta");
             log(result)
         </script>
