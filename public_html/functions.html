@@ -12,27 +12,25 @@ and open the template in the editor.
     </head>
     <body>
         
+        <h1>Example of an array created using a Function with Parameters</h1>
+        
+        <p>Using a list variable that contains 6 different colors, this loop will <br>
+           display them all</p>
+        
+        <br>
+        
         <script type = "text/javascript">
-            function doSomething(){
-                var csv = document.getElementById("userInput").value;
-                var stringVersion = processArrayString(csv);
-                var floatVersion = processArrayFloat(csv);
+            function createArray(){
+                var userInput = document.getElementById("userInput").value;
+                var csvString = processArrayString(userInput);
                 
-                document.getElementById('outputDiv').innerHTML = stringVersion + floatVersion;
+                document.getElementById('outputDiv').innerHTML = "Here is the array you created: " + csvString;
                 
             }
 
-            function processArrayString(someString){
-                var splitString = someString.split(", ");
+            function processArrayString(input){
+                var splitString = input;
                 return splitString;
-            }
-            
-            function processArrayFloat(someString){
-                var splitFloat = someString.split(", ");
-                for (x in splitFloat){
-                    splitFloat[x] = parseFloat(splitFloat[x]);
-                }
-                return splitFloat;
             }
 
         </script>
@@ -40,7 +38,7 @@ and open the template in the editor.
         Enter a string of words with a comma between each word (i.e. blue, red, green, purple) 
         <input type="text" id="userInput"><br>
         
-        <button type="button" onclick="doSomething()">Convert Input to Array</button> <br>
+        <button type="button" onclick="createArray()">Convert Input to Array</button> <br>
         <div id="outputDiv"></div> <br>
         
         <input type="button" onclick="window.location.href='https://thoming-michael.github.io/public_html/index.html';" value="Back to Main Menu"/>        
