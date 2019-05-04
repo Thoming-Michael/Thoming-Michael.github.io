@@ -6,31 +6,35 @@ and open the template in the editor.
 -->
 <html>
     <head>
-        <title>TODO supply a title</title>
+        <title>Example of Function with Parameters and a Conditional Statement</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
     <body>
-        <form action="/action_page.php" onsubmit="return myFunction()">
-          Name (max 10 characters): <input type="text" id="fname" size="20" name="fname"><br>
-          Age (from 1 to 100): <input type="text" id="age" size="20" name="age"><br>
-          E-mail: <input type="text" id="email" size="20" name="mail"><br><br>
-          <input type="submit" value="Submit"> 
-        </form>
-
+        <h1 id="message">Log Output</h1>
+        <p id="log"></p>
         <script>
-            function func1(a, b, c) {
-              console.log(arguments[0]);
-              // expected output: 1
-
-              console.log(arguments[1]);
-              // expected output: 2
-
-              console.log(arguments[2]);
-              // expected output: 3
+            function log (msg) {
+                document.getElementById('log').innerHTML += msg + "\n";
             }
-
-            func1(1, 2, 3);
+            
+            function longestWord(message){
+                log(message);
+                var i;
+                var word;
+                var longest = "";
+                for (i = 1; i < arguments.length; i++) {
+                    word = arguments[i];
+                    if(word.length > longest.length) {
+                        longest = word;
+                    }
+                }
+                return longest;
+            }
+            
+            var result = longestWord("red", "green", "LongString", "blue"
+                , "purple", "magenta");
+            log(result)
         </script>
         <input type="button" onclick="window.location.href='https://thoming-michael.github.io/public_html/index.html';" value="Back to Main Menu"/>        
     </body>
