@@ -12,7 +12,53 @@ and open the template in the editor.
     </head>
     <body>
         <div>Conditional Statements Example</div>
+        <h1>Click below to see the results of a conditional statement:</h1>
         
+        <p></p>
+        
+        <br>
+        
+        <script type = "text/javascript">
+            function executeCondition(){
+                var userInput = document.getElementById("userInput").value;
+                var response;
+                
+                if (userInput < 2) {
+                    response = "you entered 1";
+                } else if (userInput < 3) {
+                    response = "you entered 2"; 
+                } else if (userInput < 4) {
+                    response = "you entered 3";
+                } else if (userInput < 5) {
+                    response = "you entered 4";
+                } else if (userInput < 6) {
+                    response = "you entered 5";
+                } else if (userInput < 7) {
+                    response = "you entered 6";
+                } else if (userInput < 8) {
+                    response = "you entered 7";
+                } else if (userInput < 9) {
+                    response = "you entered 8";
+                } else if (userInput < 10) {
+                    response = "you entered 9";
+                } else if (userInput < 11) {
+                    response = "you entered 10";                                                                                
+                } else {
+                    response = "Please enter a number between 1 & 10";
+                }
+                document.getElementById('outputDiv').innerHTML = response;
+                
+            }
+
+        </script>
+        
+        Enter a number between 1 and 10
+        <input type="text" id="userInput"><br>
+        
+        <br>
+        
+        <button type="button" onclick="executeCondition()">Run Conditional Statement</button> <br>
+        <div id="outputDiv"></div> <br><br>       
         <input type="button" onclick="window.location.href='https://thoming-michael.github.io/public_html/javaScript.html';" value="Back to Main Menu"/>        
     </body>
 </html>
