@@ -19,20 +19,21 @@ and open the template in the editor.
         <script type = "text/javascript">
             function createArray(){
                 var userInput = document.getElementById("userInput").value;
-                var csvString = processArrayString(userInput);
+                var parsedString = processArray(userInput);
                 
-                document.getElementById('outputDiv').innerHTML = "Here is the array you created: " + csvString;
-                
+                document.getElementById('outputDiv').innerHTML = parsedString;
             }
 
-            function processArrayString(input){
-                var splitString = input;
-                return splitString;
+            function processArray(userString){
+                var array = userString.split(",");
+			
+                return array[2];
             }
 
         </script>
         
-        Enter a string of words with a comma between each word (i.e. blue, red, green, purple) 
+        Enter a string of words or numbers with a comma between each word (i.e. blue, red, green, purple).<br>
+        This function will turn your entries into an array and return only the 3rd item.<br>
         <input type="text" id="userInput"><br>
         
         <br>
