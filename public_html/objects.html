@@ -23,19 +23,21 @@ and open the template in the editor.
         <p id ="demo"></p>
                 
         <script>
-            var cellPhone = {
-                make        : "Samsung",
-                model       : "Galaxy S10",
-                year        : "2017",
-                carrier     : "Verizon",
-                condition   : "Fair",
-                whatPhone   : function() {
-                    return this.make + " " + this.model + " " + this.year;
-                }
-            };
+            function createCellPhoneFunction() {
+                var cellPhone = {
+                    make        : "Samsung",
+                    model       : "Galaxy S10",
+                    year        : "2017",
+                    carrier     : "Verizon",
+                    condition   : "Fair",
+                    whatPhone   : function() {
+                        return this.make + " " + this.model + " " + this.year;
+                    }
+                };
             
-                document.getElementById("demo").innerHTML = cellPhone.whatPhone();
-                        
+                    document.getElementById("demo").innerHTML = cellPhone.whatPhone();
+                }
+                
         </script>
         
         <input type="button" onclick="window.location.href='https://thoming-michael.github.io/public_html/index.html';" value="Back to Main Menu"/>
