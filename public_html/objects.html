@@ -11,6 +11,34 @@ and open the template in the editor.
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
     <body>
-        <div>TODO write content</div>
+        <h1>Click below to see the results of creating a "CellPhone" object with related properties and methods:</h1>
+        
+        <p>This button will create the CellPhone object.  It will list each property <br>
+            and run methods to combine some of the data.</p>
+        
+        <br>
+        
+        <button onclick="createCellPhoneFunction()">Click me</button>
+        
+        <p id ="demo"></p>
+                
+        <script>
+            var cellPhone = {
+                make        : "Samsung",
+                model       : "Galaxy S10",
+                year        : "2017",
+                carrier     : "Verizon",
+                condition   : "Fair",
+                whatPhone   : function() {
+                    return this.make + " " + this.model + " " + this.year;
+                }
+            };
+            
+                document.getElementById("demo").innerHTML = cellPhone.whatPhone();
+                        
+        </script>
+        
+        <input type="button" onclick="window.location.href='https://thoming-michael.github.io/public_html/index.html';" value="Back to Main Menu"/>
+
     </body>
 </html>
