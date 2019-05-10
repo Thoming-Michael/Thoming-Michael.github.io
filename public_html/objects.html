@@ -15,19 +15,26 @@ and open the template in the editor.
         
         <p>This button will create the CellPhone as a direct object. <br>
             Then it runs a method that combines some of the object properties into a single statement.</p>
-        
-        <br>
-        
+          
         <button onclick="createCellPhoneFunction()">Click me</button>
         
         <p id ="demo"></p>
         
+        <br>
         <p>This button uses a constructor to create an instance of the CellPhone object</p>
         
         <button onclick="createCellPhoneFunction2()">Click me</button>
         
         <p id ="more"></p>
-                
+        <br> 
+
+        <p>This button creates a tablet object using inheritance from the cellphone object</p>
+        
+        <button onclick="createTabletFunction()">Click me</button>
+        
+        <p id ="tablet"></p>
+        <br>
+        
         <script>
             function createCellPhoneFunction() {
                 var cellPhone = {
@@ -56,7 +63,8 @@ and open the template in the editor.
             var cellPhone1 = new Cellphone("Samsung", "Galaxy S8", "2017", "Verizon", "Fair");
             
             function createCellPhoneFunction2() {
-                document.getElementById("more").innerHTML = cellPhone1.make+", "+cellPhone1.model+", 							"+cellPhone1.year+", "+cellPhone1.carrier+", "+cellPhone1.condition;
+                document.getElementById("more").innerHTML = cellPhone1.make+", "+cellPhone1.model
+                        +", "+cellPhone1.year+", "+cellPhone1.carrier+", "+cellPhone1.condition;
                         
             }
                 
