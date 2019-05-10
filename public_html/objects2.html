@@ -13,38 +13,18 @@ and open the template in the editor.
     <body>
         <h1>Click below to see the results of creating a "CellPhone" object with related properties and methods:</h1>
         
-        <p>This button will create the CellPhone as a direct object. <br>
-            Then it runs a method that combines some of the object properties into a single statement.</p>
+        <p>This button will create the CellPhone object.  It will list each property <br>
+            and run a method that combines some of the properties into a single statement.</p>
         
         <br>
         
         <button onclick="createCellPhoneFunction()">Click me</button>
         
         <p id ="demo"></p>
-        
-        <p>This button uses a constructor to create an instance of the CellPhone object</p>
-        
-        <button onclick="createCellPhoneFunction2()">Click me</button>
-        
         <p id ="more"></p>
                 
         <script>
-            function createCellPhoneFunction() {
-                var cellPhone = {
-                    make        : "Samsung",
-                    model       : "Galaxy S10",
-                    year        : "2017",
-                    carrier     : "Verizon",
-                    condition   : "Fair",
-                    whatPhone   : function() {
-                        return this.make + " " + this.model + " " + this.year;
-                    }
-                };
             
-                var k = cellPhone.make;
-                    document.getElementById("demo").innerHTML = cellPhone.whatPhone();
-            }
-                
             function Cellphone(make, model, year, carrier, condition) {
                 this.make = make;
                 this.model = model;
@@ -55,8 +35,8 @@ and open the template in the editor.
             
             var cellPhone1 = new Cellphone("Samsung", "Galaxy S8", "2017", "Verizon", "Fair");
             
-            function createCellPhoneFunction2() {
-                document.getElementById("more").innerHTML = cellPhone1.make+", "+cellPhone1.model+", 							"+cellPhone1.year+", "+cellPhone1.carrier+", "+cellPhone1.condition;
+            function createCellPhoneFunction() {
+                document.getElementById("demo").innerHTML = cellPhone1.make+", "+cellPhone1.model+", 							"+cellPhone1.year+", "+cellPhone1.carrier+", "+cellPhone1.condition;
                         
             }
                 
