@@ -21,6 +21,7 @@ and open the template in the editor.
         <button onclick="createCellPhoneFunction()">Click me</button>
         
         <p id ="demo"></p>
+        <p id ="more"></p>
                 
         <script>
             function createCellPhoneFunction() {
@@ -35,8 +36,10 @@ and open the template in the editor.
                     }
                 };
             
+            var k = cellPhone.make;
                     document.getElementById("demo").innerHTML = cellPhone.whatPhone();
-                    document.getElementById("demo").innerHTML = cellPhone.make+", "+cellphone.model+", "+cellphone.year+", "+cellphone.carrier+", "+cellphone.condition;
+                    document.getElementById("more").innerHTML = k+", "+cellPhone.model
+                    +", "+cellPhone.year+", "+cellPhone.carrier+", "+cellPhone.condition;
                 }
                 
         </script>
