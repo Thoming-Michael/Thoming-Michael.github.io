@@ -70,15 +70,19 @@ and open the template in the editor.
             function tablet(make, model, year, condition, dataEnabled, carrier, screensize) {
                 Cellphone.call(this, make, model, year, condition, carrier);
                 Cellphone.call(this, make, model, year, condition, carrier);
-                Cellphone.call(this, make, model, year, condition, carrier)
-                Cellphone.call(this, make, model, year, condition, carrier)
+                Cellphone.call(this, make, model, year, condition, carrier);
+                Cellphone.call(this, make, model, year, condition, carrier);
                 this.dataEnabled;
-                Cellphone.call(this, make, model, year, condition, carrier)
+                Cellphone.call(this, make, model, year, condition, carrier);
                 this.screensize;
             }
             
-            var tablet1 = new tablet("Apple", "iPad", "2015", "good", "Yes", "T-Mobile", "10.5")
+            tablet.prototype = Object.create(Cellphone.prototype);
             
+            var tablet1 = new tablet("Apple", "iPad", "2015", "good", "Yes", "T-Mobile", "10.5");
+            
+            tablet.prototype = Object.create(Cellphone.prototype);
+    
             function tablet() {
                 document.getElementById("tablet").innerHTML = tablet1.make+", "+tablet1.model
                         +", "+tablet1.year+", "+tablet1.carrier+", "+tablet1.condition;            
