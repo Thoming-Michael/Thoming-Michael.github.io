@@ -21,13 +21,13 @@ and open the template in the editor.
                 var userInput = document.getElementById("userInput").value;
                 var parsedString = processArray(userInput);
                 
-                document.getElementById('outputDiv').innerHTML = parsedString + ", Array length = " + parsedString.length;
+                document.getElementById('outputDiv').innerHTML = parsedString[2] + ", Array length = " + parsedString.length;
             }
 
             function processArray(userString){
                 var array = userString.split(",");
 			
-                return array[2];
+                return array;
             }
 
         </script>
