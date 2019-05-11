@@ -30,7 +30,7 @@ and open the template in the editor.
 
         <p>This button creates a tablet object using inheritance from the cellphone object</p>
         
-        <button onclick="createTabletFunction()">Click me</button>
+        <button onclick="createTablet()">Click me</button>
         
         <p id ="tablet"></p>
         <br>
@@ -67,28 +67,24 @@ and open the template in the editor.
                         
             }
             
-            function tablet(make, model, year, condition, dataEnabled, carrier, screensize) {
-                this.make = Cellphone.make;
-                this.model = Cellphone.model;
-                this.year = Cellphone.year;
-                this.make = Cellphone.make;
-                this.dataEnabled;
-                Cellphone.call(this, carrier);
-                this.screensize;
+
+          	tablet.prototype = new Cellphone();
+            
+            function tablet(make, model, year, carrier, condition, dataEnabled, screensize) {
+				Cellphone.call(this, make, model, year, carrier, condition);
+                this.dataEnabled = dataEnabled;
+                this.screensize = screensize;
+            } 
+
+            
+            var tablet1 = new tablet("Samsung", "Galaxy S8", "2017", "Verizon", "Fair", "Yes", "10.5");             
+            
+            
+            function createTablet() {
+            	document.getElementById("tablet").innerHTML = tablet1.make+", "+tablet1.model
+                        +", "+tablet1.year+", "+tablet1.carrier+", "+tablet1.condition+", "+tablet1.dataEnabled+", "+tablet1.screensize;
             }
             
-            tablet.prototype = Object.create(Cellphone.prototype);
-            
-            tablet.prototype.constructor = ;
-            
-            var tablet1 = new tablet("Apple", "iPad", "2015", "good", "Yes", "T-Mobile", "10.5");
-            
-            tablet.prototype = Object.create(Cellphone.prototype);
-    
-            function tablet() {
-                document.getElementById("tablet").innerHTML = tablet1.make+", "+tablet1.model
-                        +", "+tablet1.year+", "+tablet1.carrier+", "+tablet1.condition;            
-            }
                 
         </script>
         
