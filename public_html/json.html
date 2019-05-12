@@ -11,6 +11,43 @@ and open the template in the editor.
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
     <body>
-        <div>TODO write content</div>
+        <h1>Click below to see JSON parse() and stringify() in action:</h1>
+        
+        <p>This button displays the attributes of an object, and then converts them <br>
+           into a JSON text string using the stringify() method</p>
+          
+        <button onclick="useStringify()">JSON Stringify</button>
+        
+        <p id = "displayCarObject"></p>
+        
+        <p id ="displayStringifyExample"></p>
+        
+        <script>
+            function carObj(make, model, year, seats, condition, wheels, 
+                            engine, color, aspiration, absBreaks) {
+                    this.make = make;
+                    this.model = model;
+                    this.year = year;
+                    this.seats = seats;
+                    this.condition = condition;
+                    this.wheels = wheels;
+                    this.engine = engine;
+                    this.color = color;
+                    this.aspiration = aspiration;
+                    this.absBreaks = absBreaks;
+            };
+            
+            var car1 = new carObj("Datsun", "210 Wagon", "1979", "5", "Poor",
+                                    "4", "71.5 cu in", "Orange", "Carburetor", "No");
+            
+            function useStringify() {
+                document.getElementById("displayCarObject").innerHTML = car1.make+", "+car1.model+", "+
+                        car1.year+", "+car1.seats+", "+car1.condition+", "+car1.wheels+", "+car1.engine+", "+
+                        car1.color+", "+car1.aspiration+", "+car1.absBreaks+", ";
+            }
+            
+        </script>
+        
+        <br>
     </body>
 </html>
