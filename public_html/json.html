@@ -22,6 +22,8 @@ and open the template in the editor.
         
         <p id ="displayStringifyExample"></p>
         
+        <p id ="displayObjectAgain"></p>
+        
         <script>
             function carObj(make, model, year, seats, condition, wheels, 
                             engine, color, aspiration, absBreaks) {
@@ -38,12 +40,22 @@ and open the template in the editor.
             };
             
             var car1 = new carObj("Datsun", "210 Wagon", "1979", "5", "Poor",
-                                    "4", "71.5 cu in", "Orange", "Carburetor", "No");
+                                    "4", "71.5 cu in", "Orange", "Carburetor", "No"); 
+            
+            var car1String = JSON.stringify(car1); 
+            
+            var backToObject = JSON.parse(car1String);
             
             function useStringify() {
                 document.getElementById("displayCarObject").innerHTML = car1.make+", "+car1.model+", "+
                         car1.year+", "+car1.seats+", "+car1.condition+", "+car1.wheels+", "+car1.engine+", "+
                         car1.color+", "+car1.aspiration+", "+car1.absBreaks+", ";
+            
+                document.getElementById("displayStringifyExample").innerHTML = car1String;
+                
+                document.getElementById("displayObjectAgain").innerHTML = backToObject.make+", "+backToObject.model+", "+
+                        backToObject.year+", "+backToObject.seats+", "+backToObject.condition+", "+backToObject.wheels+", "+backToObject.engine+", "+
+                        backToObject.color+", "+backToObject.aspiration+", "+backToObject.absBreaks+", ";
             }
             
         </script>
