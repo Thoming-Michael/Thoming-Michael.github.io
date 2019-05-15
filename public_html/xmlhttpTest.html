@@ -11,9 +11,23 @@ and open the template in the editor.
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
     <body>
+
+        <h1>Click below to see JSON parse() and stringify() in action:</h1>
+        
+        <p>This button does 3 things:<br>
+            1. It displays the attributes of an object<br>
+            2. It converts the object into a JSON string<br>
+            3. It converts the JSON string back into an object and displays all attributes.</p>
+          
+        <button onclick="setup()">XML-HTTP</button>
+        
+        <p id = "displayAPI"></p>
+        
         <script type="text/javascript">
             function setup() {
                 loadJSON("http://api.open-notify.org/astros.json", gotData, 'jsonp');
+                
+                document.getElementById("displayObjectAgain").innerHTML = 
             }
             
             function gotData(data) {
@@ -21,6 +35,8 @@ and open the template in the editor.
                     fill(255);
                     ellipse(random(width), random(height), 16, 16);
                 }
+                
+                
             }
             
             function draw() {
