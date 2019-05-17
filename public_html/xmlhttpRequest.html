@@ -10,43 +10,45 @@ and open the template in the editor.
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">        
     </head>
-        
-    <body>
-        
-        <h1>Click below to retrieve data from http://api.open-notify.org/astros.json:</h1>
-        
-        <p>This button requests the JSON data from the above URL and displays it to the user<br>
-        </p>
-          
-        <button onclick="function()">XML/HTTP Request</button>
-        
-        <p id = "start"></p>
 
-        <p id = "url"></p>
-        
-        <p id = "data"></p>
-        
-        <script>
-            window.onload = function() {
-                document.getElementById("Save").onclick = function fun() {
-                var x = document.forms["myForm"]["ip_address"].value;
-                var Url = "https://httpbin.org/post";
-                var xhr = new XMLHttpRequest();
-                xhr.open('POST', Url, true);
-                xhr.send(x);
-                xhr.onreadystatechange = processRequest;
-                    function processRequest(e) {
-                    if (xhr.readyState === 4 && xhr.status === 200) {
-                    // alert(xhr.responseText.headers.Host);
-                    var response1 = JSON.parse(xhr.responseText);
-                    document.getElementById("origin").innerHTML = response1.start;
-                    document.getElementById("url").innerHTML = response1.url;
-                    document.getElementById("data").innerHTML = response1.data;
-                    }
-                    }
-                };
-            }
-       </script>
+    <body>    
+    
+ <script>
+ window.onload = function() {
+ document.getElementById("Save").onclick = function fun() {
+ var userInput = document.forms["thisForm"]["ip_address"].value;
+ var Url = "https://httpbin.org/post";
+ var xhr = new XMLHttpRequest();
+ xhr.open('POST', Url, true);
+ xhr.send(userInput);
+ xhr.onreadystatechange = processRequest;
+ function processRequest(m) {
+ if (xhr.readyState === 4 && xhr.status === 200) {
+ // alert(xhr.responseText.headers.Host);
+ var response1 = JSON.parse(xhr.responseText);
+ document.getElementById("userIP").innerHTML = response1.origin;
+ document.getElementById("address").innerHTML = response1.url;
+ document.getElementById("input").innerHTML = response1.data;
+ }
+ }
+ };
+ }
+</script>
+
+
+<h1> Javascript Post Request Test </h1>
+<br><br> 
+ <form name="thisForm">
+ <input type="text" name="ip_address"/>
+ <input type="button" id="Save" onclick="f1()" value="test"/>
+</form>
+ <br><br> 
+
+ <p id="input"></p>
+ <p id="userIP"></p>
+ <p id="address"></p>
+ 
+ 
         
         <input type="button" onclick="window.location.href='https://thoming-michael.github.io/public_html/index.html';" value="Back to Main Menu"/>       
 
