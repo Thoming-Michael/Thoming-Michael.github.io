@@ -13,36 +13,40 @@ and open the template in the editor.
         
     <body>
         
-        <h1>Click below to see JSON parse() and stringify() in action:</h1>
+        <h1>Click below to retrieve data from http://api.open-notify.org/astros.json:</h1>
         
-        <p>This button does 3 things:<br>
-            1. It displays the attributes of an object<br>
-            2. It converts the object into a JSON string<br>
-            3. It converts the JSON string back into an object and displays all attributes.</p>
+        <p>This button requests the JSON data from the above URL and displays it to the user<br>
+        </p>
           
-        <button onclick="useStringify()">JSON Stringify</button>
+        <button onclick="function()">XML/HTTP Request</button>
         
-        <p id = "origin"></p>
+        <p id = "start"></p>
 
         <p id = "url"></p>
         
-        <script type="text/javascript">
-            var Url = "http://api.open-notify.org/astros.json";
-            
-            var xhr = new XMLHttpRequest();
-            
-            xhr.open('POST', Url, true);
-            xhr.send();
-            xhr.onreadystatechange = processRequest;
-            
-            function processRequest(e) {
-                if (xhr.readyState === 4 && xhr.status === 200) {
+        <p id = "data"></p>
+        
+        <script>
+            window.onload = function() {
+                document.getElementById("Save").onclick = function fun() {
+                var x = document.forms["myForm"]["ip_address"].value;
+                var Url = "https://httpbin.org/post";
+                var xhr = new XMLHttpRequest();
+                xhr.open('POST', Url, true);
+                xhr.send(x);
+                xhr.onreadystatechange = processRequest;
+                    function processRequest(e) {
+                    if (xhr.readyState === 4 && xhr.status === 200) {
+                    // alert(xhr.responseText.headers.Host);
                     var response1 = JSON.parse(xhr.responseText);
-                    document.getElementById("origin").innerHTML = response1.origin;
+                    document.getElementById("origin").innerHTML = response1.start;
                     document.getElementById("url").innerHTML = response1.url;
-                }
+                    document.getElementById("data").innerHTML = response1.data;
+                    }
+                    }
+                };
             }
-        </script>
+       </script>
         
         <input type="button" onclick="window.location.href='https://thoming-michael.github.io/public_html/index.html';" value="Back to Main Menu"/>       
 
