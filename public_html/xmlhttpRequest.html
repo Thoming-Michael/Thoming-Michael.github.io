@@ -7,8 +7,27 @@ and open the template in the editor.
 <html>
     <head>
         <title>XML HTTP Request JSON</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">        
+    </head>
+        
+    <body>
+        
+        <h1>Click below to see JSON parse() and stringify() in action:</h1>
+        
+        <p>This button does 3 things:<br>
+            1. It displays the attributes of an object<br>
+            2. It converts the object into a JSON string<br>
+            3. It converts the JSON string back into an object and displays all attributes.</p>
+          
+        <button onclick="useStringify()">JSON Stringify</button>
+        
+        <p id = "origin"></p>
+
+        <p id = "url"></p>
+        
         <script type="text/javascript">
-            var Url = "https://httpbin.org/post";
+            var Url = "http://api.open-notify.org/astros.json";
             
             var xhr = new XMLHttpRequest();
             
@@ -24,15 +43,6 @@ and open the template in the editor.
                 }
             }
         </script>
-    </head>
-    <body>
-        <center>
-            <H1>This example sends a Post request to https://httpbin.org/post and reads the JSON response. </H1>
-            <br><br> 
-            <table border="1">
-                <tr><td>origin :</td><td id="origin"></td></tr>
-                <tr><td>url :</td><td id="url"> </td></tr>
-            </table>
-         </center>
+
     </body>
 </html>
