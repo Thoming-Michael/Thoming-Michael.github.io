@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <h1>Local Storage Example</h1>
+        
+        <p>??<br>
+            1. ??It displays the attributes of an object<br>
+            2. ??<br>
+            3. ??</p>
+        
+            <p>Please enter the following info:<br>
+                First Name:<br>
+                <input type="text" id="firstname"><br><br>
+                
+                Last name:<br>
+                <input type="text" id="lastname"><br><br>
+                
+                Email address:<br>
+                <input type="text" id="email"><br><br>
+                
+                Address<br>
+                <input type="text" id="address"><br><br>
+
+        <button onclick="storeData()">Save</button>
+        
+        <p id = "displayObject"></p>
+        
+        <p id ="displayExample2"></p>
+        
+        <p id ="displayExample3"></p>
+        
+        <p id ="displayExample4"></p>        
+        
+        <script>
+            function coreObject(expected, arguments) {
+                    this.argument1 = argument1;
+                    this.argument2 = argument2;
+                    
+            };
+            
+            var firstName = document.getElementById("firstname").value;
+            var lastName = document.getElementById("lastname").value;
+            var email = document.getElementById("email").value;
+            var address = document.getElementById("address").value;
+            
+            var objectInstance = new coreObject("attribute1", "attribute2"); 
+            
+            var what = document.getElementById(); 
+            
+            var that = change;
+            
+            function storeData() {
+                var firstName = document.getElementById("firstname").value;
+                var lastName = document.getElementById("lastname").value;
+                var email = document.getElementById("email").value;
+                var address = document.getElementById("address").value;
+                document.getElementById("displayObject").innerHTML = firstName;
+                document.getElementById("displayExample2").innerHTML = lastName;
+                document.getElementById("displayExample3").innerHTML = email;
+                document.getElementById("displayExample4").innerHTML = address;            
+            
+            }
+            
+        </script>
+        
+        <br>
+        
+        <button>Save</button>
+        
+        <br>
+
+        <button>Clear All</button>
+        
+        <br>
+        
+        <input type="button" onclick="window.location.href='https://thoming-michael.github.io/public_html/index.html';" value="Back to Main Menu"/>
+
+    </body>
+</html>
