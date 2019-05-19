@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <h1>JS DOM Manipulation</h1>
+        
+        <div id="buttonLocation">
+            <p>Click this button to create a new button on the form: <br>
+            <button onclick="createButton()">Create Another Button</button> <br>
+        </div>
+        
+        <div id="paragraphLocation">
+            <p>Click this button to create a new paragraph on the form: <br>
+            <button onclick="createParagraph()">Create a Paragraph</button> <br>            
+        </div>
+                
+        <p>Enter text and click the button to add a new item to the list<br>
+        
+        New list item:<br>
+        <input type="text" id="newListItem"><br><br>
+        <button onclick="addListItem()">Add List Item</button> <br>
+        
+        <ul id="myList">
+            <li>Milk</li>
+            <li>Eggs</li>
+            <li>Bread</li>
+            <li>Cheese</li>
+            <li>Soda</li>
+            <li>Apples</li>
+        </ul>        
+        
+        <script>
+            function createButton() {
+                var btn = document.createElement("BUTTON");
+                btn.innerHTML = "CLICK ME";
+                var buttonLocation = document.getElementById("buttonLocation");
+                buttonLocation.appendChild(btn);
+            }
+            
+            function createParagraph() {
+                var para = document.createElement("P");
+                para.innerText = "This is a paragraph.";
+                var paragraphLocation = document.getElementById("paragraphLocation");
+                paragraphLocation.appendChild(para);
+            }
+            
+            function addListItem() {
+                var userInput = document.getElementById("newListItem").value;
+                var newItem = document.createElement("LI");
+                var textnode = document.createTextNode(userInput);
+                newItem.appendChild(textnode);
+
+                var list = document.getElementById("myList");
+                list.insertBefore(newItem, list.childNodes[0]);
+                document.getElementById("newListItem").value = "";
+            }
+            
+            function coreObject(expected, arguments) {
+                    this.argument1 = argument1;
+                    this.argument2 = argument2;
+                    
+            };
+            
+            var firstName = document.getElementById("firstname").value;
+            var lastName = document.getElementById("lastname").value;
+            var email = document.getElementById("email").value;
+            var address = document.getElementById("address").value;
+            
+            var objectInstance = new coreObject("attribute1", "attribute2"); 
+            
+            var what = document.getElementById(); 
+            
+            var that = change;
+            
+            function storeData() {
+                var firstName = document.getElementById("firstname").value;
+                var lastName = document.getElementById("lastname").value;
+                var email = document.getElementById("email").value;
+                var address = document.getElementById("address").value;
+                document.getElementById("displayObject").innerHTML = firstName;
+                document.getElementById("displayExample2").innerHTML = lastName;
+                document.getElementById("displayExample3").innerHTML = email;
+                document.getElementById("displayExample4").innerHTML = address;            
+            
+            }
+            
+        </script>
+        
+        <br>
+        
+        <button>Save</button>
+        
+        <br>
+
+        <button>Clear All</button>
+        
+        <br>
+        
+        <input type="button" onclick="window.location.href='https://thoming-michael.github.io/public_html/index.html';" value="Back to Main Menu"/>
+
+    </body>
+</html>
