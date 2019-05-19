@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Example of Function with Parameters and a Conditional Statement</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        
+        <h1>Example of an Array created using Parameters passed into a Function</h1>
+        
+        <br>
+        
+        <script type = "text/javascript">
+            function createArray(){
+                var userInput = document.getElementById("userInput").value;
+                var parsedString = processArray(userInput);
+                var jsonString = JSON.stringify(parsedString);
+                localStorage.setItem("userInfo", JSON.stringify(parsedString));
+                
+                document.getElementById('outputDiv').innerHTML = parsedString[2] + ", Array length = " + parsedString.length;
+                document.getElementById('outputDiv2').innerHTML = "Locally stored data: " + localStorage.getItem("userInfo");
+            }
+
+            function processArray(userString){
+                var array = userString.split(",");
+			
+                return array;
+            }
+
+        </script>
+        
+        Enter a string of words or numbers with a comma between each word (i.e. blue, red, green, purple).<br>
+        This function will turn your entries into an array and return only the 3rd item.<br>
+        It will also show the total number of elements in the array<br>
+        <input type="text" id="userInput"><br>
+        
+        <br>
+        
+        <button type="button" onclick="createArray()">Convert Input to Array</button> <br>
+        <div id="outputDiv"></div> <br><br>
+        
+        <div id="outputDiv2"></div> <br><br>
+        
+        <input type="button" onclick="window.location.href='https://thoming-michael.github.io/public_html/javaScript.html';" value="Back to Main Menu"/>        
+    </body>
+</html>

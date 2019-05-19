@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <h1>Local Storage Example</h1>
+        
+        <p>This example takes your input and:<br>
+            1. Clicking "Save" puts it into local storage using setItem, and then calls it back to display using getItem<br>
+            2. Clicking "Remove First Name" deletes the first name from local storage using removeItem, then displays the remaining values<br>
+            3. Clicking "Clear All" removes all items from local storage using the .clear command, and then shows that those values are no longer found.</p>
+        
+            <p>Please enter the following info:<br>
+                First Name:<br>
+                <input type="text" id="firstname"><br><br>
+                
+                Last name:<br>
+                <input type="text" id="lastname"><br><br>
+                
+                Email address:<br>
+                <input type="text" id="email"><br><br>
+                
+                Address<br>
+                <input type="text" id="address"><br><br>
+
+        <button onclick="storeData()">Save</button>
+        
+        <p id = "displayJSON1"></p>
+        
+        <p id = "displayJSON2"></p>
+        
+        <p id ="displayExample1"></p>
+        
+        <p id ="displayExample2"></p>
+        
+        <p id ="displayExample3"></p>
+        
+        <p id ="displayExample4"></p>
+        
+        <button onclick="removeData()">Remove First Name</button>
+        
+        <p id ="displayExample5"></p>
+        
+        <p id ="displayExample6"></p>
+        
+        <p id ="displayExample7"></p>
+        
+        <p id ="displayExample8"></p>
+
+        <button onclick="clearData()">Clear All</button>
+        
+        <p id ="displayExample9"></p>
+        
+        <p id ="displayExample10"></p>
+        
+        <p id ="displayExample11"></p>
+        
+        <p id ="displayExample12"></p>
+        
+        <script>
+
+            function storeData() {
+              var firstName = document.getElementById("firstname").value;
+              var lastName = document.getElementById("lastname").value;
+              var email = document.getElementById("email").value;
+              var address = document.getElementById("address").value;
+              
+              var userInfo = {firstName:firstName, lastName:lastName, email:email, address:address};
+              
+              var jsonUserInfo = JSON.stringify(userInfo);
+							document.getElementById("displayJSON1").innerHTML = "From variable: " + jsonUserInfo;
+              
+              localStorage.setItem("userInfo", jsonUserInfo);
+                
+              document.getElementById("displayJSON2").innerHTML = "From local storage: " + localStorage.getItem("userInfo");
+              
+              var retrievedData = localStorage.getItem("userInfo");
+              var userInfo2 = JSON.parse(retrievedData);
+              document.getElementById("displayExample1").innerHTML = userInfo2["firstName"]+", "+userInfo2["lastName"]+", "+userInfo2["email"]+", "+userInfo2["address"];
+
+            }
+            
+            function removeData() {
+              var savedData = localStorage.getItem("userInfo");
+              var parsedData = JSON.parse(savedData);
+              localStorage.setItem("firstName", parsedData["firstName"]);
+							localStorage.setItem("lastName", parsedData["lastName"]);
+              localStorage.setItem("email", parsedData["email"]);
+              localStorage.setItem("address", parsedData["address"]);
+              
+              localStorage.removeItem("firstName");
+              
+              document.getElementById("displayExample5").innerHTML = localStorage.getItem("firstName")+", "+localStorage.getItem("lastName")+", "+localStorage.getItem("email")+", "+localStorage.getItem("address")+", "+" - I did it!!";            
+            
+            }
+            
+            function clearData() {
+            	localStorage.clear();
+							             
+              document.getElementById("displayExample9").innerHTML = localStorage.getItem('firstName') + " No First Name?";
+              document.getElementById("displayExample10").innerHTML = localStorage.getItem('lastName') + " No Last Name?";
+              document.getElementById("displayExample11").innerHTML = localStorage.getItem('email') + " No email?";
+              document.getElementById("displayExample12").innerHTML = localStorage.getItem('address') + " No address?";            
+            
+            }            
+            
+        </script>
+        
+        <br>
+        
+        <input type="button" onclick="window.location.href='https://thoming-michael.github.io/public_html/index.html';" value="Back to Main Menu"/>
+
+    </body>
+</html>
