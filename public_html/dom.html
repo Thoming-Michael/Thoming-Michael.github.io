@@ -62,6 +62,7 @@ and open the template in the editor.
                 var list = document.getElementById("myList");
                 list.insertBefore(newItem, list.childNodes[0]);
                 document.getElementById("newListItem").value = "";
+                document.getElementById("newListItem").focus();
             }
             
             function coreObject(expected, arguments) {
