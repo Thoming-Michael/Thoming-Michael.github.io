@@ -44,7 +44,16 @@ and open the template in the editor.
                 btn.innerHTML = "CLICK ME";
                 var buttonLocation = document.getElementById("buttonLocation");
                 buttonLocation.appendChild(btn);
-
+                
+                changeCSS();
+            }
+            
+            function changeCSS() {
+                document.getElementById("firstButton").style.color = "blue";
+                document.getElementById("header").style.color = "red";
+                document.getElementById("header").style.textAlign = "center"; 
+                //https://www.w3schools.com/jsref/dom_obj_style.asp
+                //https://www.w3schools.com/cssref/sel_class.asp
             }
             
             function createParagraph() {
