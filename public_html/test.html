@@ -11,34 +11,22 @@ and open the template in the editor.
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
     <body>
-        <h1 id="header">Manipulating CSS Class Properties Using JavaScript</h1>
+        <h1 id="header">JS DOM Manipulation</h1>
         
         <div id="buttonLocation">
             <p>Click this button to create a new button on the form: <br>
             <button id="firstButton" onclick="createButton()">Create Another Button</button> <br>
         </div>
         
-        <div id ="newButtonDiv">
-            <p id = "hiddenP1"> Click this new button to hide this text: </p>                    
-        </div>
-
+        <p id = "hiddenP"> Click this new button to toggle visibility: </p>
+        
         <div id="paragraphLocation">
-            <p id = "elementToHide">
-                Click this button to create a new paragraph on the form: <br>
-                The below text will change color as well.
-            </p>
-                
-               
-            
+            <p id = "elementToHide">Click this button to create a new paragraph on the form: <br>
+            <p id = "hiddenP"> This paragraph becomes visible after clicking the button. </p>
             <button onclick="createParagraph()">Create a Paragraph</button> <br>            
         </div>
-        
-        <div id="newParagraphLocation">
-            <p id = "hiddenP2"> This paragraph turns blue after clicking the button above. </p>
-        </div>
-        <br>        
+                
         <p>Enter text and click the button to add a new item to the list<br>
-            The list will also change color to green. <br><br>
         
         New list item:<br>
         <input type="text" id="newListItem"><br><br>
@@ -55,26 +43,21 @@ and open the template in the editor.
         
         <script>
         	
-            document.getElementById("hiddenP1").style.visibility = "hidden";
-            document.getElementById("hiddenP2").style.visibility = "hidden";
-                        
+            document.getElementById("hiddenP").style.visibility = "hidden";
             function createButton() {
                 var btn = document.createElement("BUTTON");
                 btn.setAttribute('id', 'newButton');
                 btn.setAttribute('onclick', 'newButtonAction()');
                 btn.innerHTML = "CLICK ME";
-                var buttonLocation = document.getElementById("newButtonDiv");
+                var buttonLocation = document.getElementById("buttonLocation");
                 buttonLocation.appendChild(btn);
-                document.getElementById("buttonLocation").style.visibility = "hidden";
-                document.getElementById("hiddenP2").style.visibility = "visible";
-                document.getElementById("paragraphLocation").style.visibility = "visible";
                 
                 changeCSS();
             }
             
             function newButtonAction() {
-            	document.getElementById("hiddenP1").style.visibility = "hidden";
-                document.getElementById("paragraphLocation").style.visibility = "visible";
+            	document.getElementById("hiddenP").style.visibility = "hidden";
+                document.getElementById("elementToHide").style.visibility = "visible";
             
             }
             
@@ -82,18 +65,17 @@ and open the template in the editor.
                 document.getElementById("firstButton").style.color = "blue";
                 document.getElementById("header").style.color = "red";
                 document.getElementById("header").style.textAlign = "center";
-                document.getElementById("hiddenP1").style.visibility = "visible";
-                document.getElementById("hiddenP1").style.color = "red";
+                document.getElementById("hiddenP").style.visibility = "visible";
+                document.getElementById("hiddenP").style.color = "red";
+              document.getElementById("elementToHide").style.visibility = "hidden";
 
             }
             
             function createParagraph() {
                 var para = document.createElement("P");
-                para.innerText = "This is a new paragraph.";
-                var newParagraphLocation = document.getElementById("newParagraphLocation");
-                newParagraphLocation.appendChild(para);
-                document.getElementById("newParagraphLocation").style.color = "blue";
-                document.getElementById("paragraphLocation").style.visibility = "hidden";
+                para.innerText = "This is a paragraph.";
+                var paragraphLocation = document.getElementById("paragraphLocation");
+                paragraphLocation.appendChild(para);
             }
             
             function addListItem() {
@@ -101,12 +83,9 @@ and open the template in the editor.
                 var newItem = document.createElement("LI");
                 var textnode = document.createTextNode(userInput);
                 newItem.appendChild(textnode);
-                
 
                 var list = document.getElementById("myList");
                 list.insertBefore(newItem, list.childNodes[0]);
-                document.getElementById("myList").style.color = "green";
-                
                 document.getElementById("newListItem").value = "";
                 document.getElementById("newListItem").focus();
             }
