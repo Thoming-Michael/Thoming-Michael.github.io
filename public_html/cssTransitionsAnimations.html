@@ -9,8 +9,33 @@ and open the template in the editor.
         <title>TODO supply a title</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <style type="text/css">
+            div#box1 {
+                background: #9DCEFF;
+                width: 400px;
+                height: 200px;
+            }
+            
+        </style>
+        
     </head>
     <body>
-        <div>TODO write content</div>
+        <button onClick="changeBG('box1','#F0F');">Magenta></button>
+        <div id="box1">Content in box 1...</div>
+        
+        
+        <script>
+            function changeBG(element, color){
+                var element = document.getElementById(element);
+                element.style.transition = "background 1.0s linear 0s";
+                element.style.background = color;
+            }
+        </script>
+        
+
+        <br>        
+        <input type="button" onclick="window.location.href='https://thoming-michael.github.io/public_html/index.html';" value="Back to Main Menu"/>
+        
     </body>
 </html>
