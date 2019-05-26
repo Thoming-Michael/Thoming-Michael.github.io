@@ -21,12 +21,12 @@ and open the template in the editor.
         
     </head>
     <body>
-        <button onClick="changeBG('box1','#F0F');">Magenta></button>
-        <div id="box1">Content in box 1...</div>
+        <button onClick="changeColor('box1','#F0F');">Magenta></button>
+        <div id="box1">Some text in this box...</div>
         
         
         <script>
-            function changeBG(element, color){
+            function changeColor(element, color){
                 var element = document.getElementById(element);
                 element.style.transition = "background 1.0s linear 0s";
                 element.style.background = color;
