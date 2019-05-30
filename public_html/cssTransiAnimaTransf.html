@@ -8,50 +8,50 @@ and open the template in the editor.
     <head>
         <link rel="stylesheet" href="style.css" type="text/css"/>
 
-        <title>CSS TRansition Animation Transformation</title>
+        <title>CSS Transition Animation Transformation</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
         <style>
             
             //https://thoughtbot.com/blog/transitions-and-transforms
-              .group {
+            .group {
                 margin: 100px;
-              }
+            }
 
-              .object, .object0, .object1, .object2, .object3, .object4 {
+            .object, .object0, .object1, .object2, .object3, .object4 {
                 height: 30px;
                 width: 30px;
                 margin: 10px;
-              }
-              .group:hover .object, .group:hover .object0, .group:hover .object1, .group:hover .object2, .group:hover .object3, .group:hover .object4 {
+            }
+            .group:hover .object, .group:hover .object0, .group:hover .object1, .group:hover .object2, .group:hover .object3, .group:hover .object4 {
                 transform: translateX(400px);
-              }
+            }
 
-              .object0 {
+            .object0 {
                 background: PaleTurquoise;
                 transition: all 2s linear;
-              }
+            }
 
-              .object1 {
+            .object1 {
                 background: salmon;
                 transition: all 2s ease;
-              }
+            }
 
-              .object2 {
+            .object2 {
                 background: lightskyblue;
                 transition: all 2s ease-in;
-              }
+            }
 
-              .object3 {
+            .object3 {
                 background: khaki;
                 transition: all 2s ease-out;
-              }
+            }
 
-              .object4 {
+            .object4 {
                 background: mediumturquoise;
                 transition: all 2s ease-in-out;
-              }
+            }
             
             .transformObject {
                 background: blue;
@@ -65,7 +65,48 @@ and open the template in the editor.
             
             .transformObject:hover {
                 transform: rotate(900deg);
-            }                
+            }
+            
+            @keyframes slide {
+                0% {
+                    left: 0;
+                    top: 0;
+                }
+                
+                50% {
+                    left: 250px;
+                    top: 120px;
+                }
+                
+                100% {
+                    left: 500px;
+                    top: 0;
+                }
+            }
+            
+            .stage {
+                border-radius: 6px;
+                height: 150px;
+                position: relative;
+                min-width: 538px;
+            }
+            
+            .stage:hover .ball {
+                animation-name: slide;
+                animation-duration: 3s;
+                animation-timing-function: ease-in-out;
+                animation-delay: .2s;
+                animation-iteration-count: infinite;
+                animation-direction: alternate;
+            }
+            
+            .ball {
+                background: #b02ab3;
+                border-radius: 60%;
+                height: 60px;
+                position: absolute;
+                width: 60px;
+            }
 
         </style>
     
@@ -94,7 +135,9 @@ and open the template in the editor.
         <br><br>
         <h2>Animation Example</h2>
         <br>
-        
+        <div class="stage">
+            <figure class="ball"></figure>
+        </div>
         <br><br>
         <h2>Transform Example</h2>
         <br>
