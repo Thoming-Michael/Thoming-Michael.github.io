@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <link rel="stylesheet" href="style.css" type="text/css"/>
+
+        <title>CSS TRansition Animation Transformation</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+        <style>
+            
+            //https://thoughtbot.com/blog/transitions-and-transforms
+              .group {
+                margin: 100px;
+              }
+
+              .object, .object0, .object1, .object2, .object3, .object4 {
+                height: 30px;
+                width: 30px;
+                margin: 10px;
+              }
+              .group:hover .object, .group:hover .object0, .group:hover .object1, .group:hover .object2, .group:hover .object3, .group:hover .object4 {
+                transform: translateX(400px);
+              }
+
+              .object0 {
+                background: PaleTurquoise;
+                transition: all 2s linear;
+              }
+
+              .object1 {
+                background: salmon;
+                transition: all 2s ease;
+              }
+
+              .object2 {
+                background: lightskyblue;
+                transition: all 2s ease-in;
+              }
+
+              .object3 {
+                background: khaki;
+                transition: all 2s ease-out;
+              }
+
+              .object4 {
+                background: mediumturquoise;
+                transition: all 2s ease-in-out;
+              }
+            
+            .transformObject {
+                background: blue;
+                border-radius: 15px;
+                height: 120px;
+                margin: 15px auto;
+                transform-origin: left top;
+                transition: transform 4s;
+                width: 120px;
+            }
+            
+            .transformObject:hover {
+                transform: rotate(900deg);
+            }                
+
+        </style>
+    
+    </head>
+           
+    <body>
+        <script>
+
+        </script>
+
+        <h1>CSS Transition, Animation & Transformation Examples</h1>
+        
+        <br><br>
+        <h2>Transition Example, linear, ease, ease-in, ease-out, ease-in/out, </h2>
+        <br>
+
+        <div class="group">
+            <div class="object0"></div>
+            <div class="object1"></div>
+            <div class="object2"></div>
+            <div class="object3"></div>
+            <div class="object4"></div>
+        </div>
+        
+        
+        <br><br>
+        <h2>Animation Example</h2>
+        <br>
+        
+        <br><br>
+        <h2>Transform Example</h2>
+        <br>
+        <div class="transformObject"></div>
+
+        
+        <br><br>        
+        <input type="button" id="backButton" onclick="window.location.href='https://thoming-michael.github.io/public_html/index.html';" value="Back to Main Menu"/>
+
+    </body>
+</html>
