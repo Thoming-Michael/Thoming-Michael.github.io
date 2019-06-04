@@ -9,12 +9,34 @@ and open the template in the editor.
         <title>TODO supply a title</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <style>
+          .touchEvent {
+            color: red;
+          }
+          
+          .mobileConfirmation {
+            visibility: hidden;
+          }
+          
+          
+        </style>
+        
     </head>
     <body>
 
         <h1>Click the following buttons to see examples of Local Storage</h1>
         
         <form>
+            
+            <br>
+            <h2 class="touchEvent" >Touch here if using a mobile device</h2>
+            <br>
+            
+            <p class="mobileConfirmation" id="mobileConfirmation">
+              Thank you for confirming that you are using a mobile device
+            </p>
+            
             <input type="button" onclick="window.location.href=
                         'https://thoming-michael.github.io/public_html/localStorageArray.html';" 
                         value="Local Storage w/ Array"/>
@@ -25,7 +47,10 @@ and open the template in the editor.
         </form>       
         <br>
         <input type="button" onclick="window.location.href='https://thoming-michael.github.io/public_html/index.html';" value="Back to Main Menu"/>
+        <script>
+        	document.getElementById("mobileConfirmation").style.visibility="visible";
         
+        </script>
         
     </body>
 </html>
