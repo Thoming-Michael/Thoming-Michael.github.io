@@ -12,7 +12,10 @@ and open the template in the editor.
         
         <style>
           .touchEvent {
-            
+            color: red;
+          }
+          .mobileConfirmation{
+              color: blue;
           }
                     
           
@@ -45,14 +48,10 @@ and open the template in the editor.
         <input type="button" onclick="window.location.href='https://thoming-michael.github.io/public_html/index.html';" value="Back to Main Menu"/>
         <script>
         	document.getElementById("mobileConfirmation").style.visibility="hidden";
-                document.getElementById("mobileConfirmation").addEventListener("touchstart", mobileConfirmation);
+                document.getElementById("touchEvent").addEventListener("touchstart", mobileConfirmation);
                 
                 function mobileConfirmation(){
                     document.getElementById("mobileConfirmation").style.visibility="visible";
-                }
-                
-                function loadConfirmation() {
-                    document.getElementById("touchEvent").style.color=red;
                 }
         
         </script>
