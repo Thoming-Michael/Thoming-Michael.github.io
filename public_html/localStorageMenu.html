@@ -48,7 +48,12 @@ and open the template in the editor.
         <br>
         <input type="button" onclick="window.location.href='https://thoming-michael.github.io/public_html/index.html';" value="Back to Main Menu"/>
         <script>
-        	document.getElementById("mobileConfirmation").style.visibility="visible";
+        	document.getElementById("mobileConfirmation").style.visibility="hidden";
+                document.getElementById("mobileConfirmation").addEventListener("touchstart", myFunction);
+                
+                function myFunction(){
+                    document.getElementById("mobileConfirmation").style.visibility="visible";
+                }
         
         </script>
         
