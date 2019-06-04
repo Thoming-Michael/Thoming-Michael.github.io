@@ -19,7 +19,7 @@ and open the template in the editor.
         </style>
         
     </head>
-    <body>
+    <body onload="loadConfirmation()">
 
         <h1>Click the following buttons to see examples of Local Storage</h1>
         
@@ -47,14 +47,12 @@ and open the template in the editor.
         	document.getElementById("mobileConfirmation").style.visibility="hidden";
                 document.getElementById("mobileConfirmation").addEventListener("touchstart", mobileConfirmation);
                 
-                document.getElementById("mobileConfirmation").addEventListener("load", loadConfirmation);
-                
                 function mobileConfirmation(){
                     document.getElementById("mobileConfirmation").style.visibility="visible";
                 }
                 
                 function loadConfirmation() {
-                    document.getElementById("mobileConfirmation").style.color=red;
+                    document.getElementById("touchEvent").style.color=red;
                 }
         
         </script>
