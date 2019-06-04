@@ -14,15 +14,14 @@ and open the template in the editor.
           .touchEvent {
             color: red;
           }
-          .mobileConfirmation{
-              color: blue;
-          }
-                    
+          
+
+          
           
         </style>
         
     </head>
-    <body onload="loadConfirmation()">
+    <body>
 
         <h1>Click the following buttons to see examples of Local Storage</h1>
         
@@ -48,9 +47,9 @@ and open the template in the editor.
         <input type="button" onclick="window.location.href='https://thoming-michael.github.io/public_html/index.html';" value="Back to Main Menu"/>
         <script>
         	document.getElementById("mobileConfirmation").style.visibility="hidden";
-                document.getElementById("mobileConfirmation").addEventListener("touchstart", mobileConfirmation);
+                document.getElementById("mobileConfirmation").addEventListener("touchstart", myFunction);
                 
-                function mobileConfirmation(){
+                function myFunction(){
                     document.getElementById("mobileConfirmation").style.visibility="visible";
                 }
         
