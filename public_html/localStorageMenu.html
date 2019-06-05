@@ -50,7 +50,11 @@ and open the template in the editor.
                 document.getElementById("mobileConfirmation").addEventListener("touchstart", myFunction);
                 
                 function myFunction(){
-                    document.getElementById("mobileConfirmation").style.visibility="visible";
+                    if (document.getElementById("mobileConfirmation").style.visibility === "hidden") {
+                        document.getElementById("mobileConfirmation").style.visibility="visible";
+                    } else {
+                        document.getElementById("mobileConfirmation").style.visibility="hidden";
+                    }                    
                 }
         
         </script>
