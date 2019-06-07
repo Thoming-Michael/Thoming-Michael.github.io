@@ -28,12 +28,42 @@ and open the template in the editor.
           }
           .button {transition: all .2s ease-in-out;}
           
+          div {
+            width: 100px;
+            height: 50px;
+            background-color: white;
+            font-weight: bold;
+            position: relative;
+            -webkit-animation: mymove 5s infinite; /* Safari 4.0 - 8.0 */
+            animation: mymove 5s infinite;
+          }
+          
+          #div1 {-webkit-animation-timing-function: linear;}
+          #div1 {-webkit-animation-timing-function: linear;}
         
+          @-webkit-keyframes mymove {
+            from {left: 0px;}
+            to {left: 300px;}
+          }
+
+          /* Standard syntax */
+          @keyframes mymove {
+            from {left: 0px;}
+            to {left: 300px;}
+          }
+          
         </style>
         
     </head>
     <body>
         <h1>Local Storage Example using Associative Array</h1>
+        <h2>Also CSS Transform, Transition and Animation Examples</h2>
+        <br>
+        <div id="div1">
+            <img src="Logo.PNG" alt="Logo" width="100" height="100"/>
+        </div>
+        
+        <br>
         
         <p>This example takes your input and:<br>
             1. Creates an associative array. <br>
