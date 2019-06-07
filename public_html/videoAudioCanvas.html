@@ -62,8 +62,15 @@ and open the template in the editor.
                 var c = document.getElementById("fillCanvas");
                 var ctx = c.getContext("2d");
                 var img = document.getElementById("logo");
-                ctx.drawImage(img, 10, 5, 200, 200);
-                document.getElementById("logo").style.visibility = "hidden";
+
+                if (document.getElementById("logo").style.visibility === "hidden") {
+                    ctx.drawImage(img, 10, 5, 200, 200);
+                    document.getElementById("logo").style.visibility = "hidden";
+                } else {
+                    ctx.clearRect(0,0, c.width, c.height);
+                    document.getElementById("logo").style.visibility = "visible";
+                }
+                
             }
         </script>
         
