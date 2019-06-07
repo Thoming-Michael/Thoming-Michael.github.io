@@ -16,6 +16,20 @@ and open the template in the editor.
           }
           
 
+          html {
+            -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+            filter: alpha(opacity=0);
+            -moz-opacity: 0;
+            -khtml-opacity: 0;
+            opacity:0;
+            -webkit-transition: opacity 2s;
+            -moz-transition: opacity 2s;
+            -o-transition: opacity 2s;
+            -ms-transition: opacity 2s;
+            transition: opacity 2s;
+          }
+
+
           
           
         </style>
@@ -36,7 +50,7 @@ and open the template in the editor.
             </p>
             
             <br>
-            <input type="button" id="newButton" onclick="????" 
+            <input type="button" class=fadeIn id="newButton" onclick="animateButtons()" 
                         value="New Button"/>
             <br>
             
@@ -53,17 +67,33 @@ and open the template in the editor.
         <br>
         <input type="button" onclick="window.location.href='https://thoming-michael.github.io/public_html/index.html';" value="Back to Main Menu"/>
         <script>
-        	document.getElementById("mobileConfirmation").style.visibility="hidden";
-                document.getElementById("mobileConfirmation").addEventListener("touchstart", myFunction);
+            
+            //fade the screen into view onLoad
+            window.onload = function() {
+              document.documentElement.style.opacity = '1';
+            };
+            
+            //When new button is clicked, make button1 transform/transition
+            function animateButtons() {
                 
-                function myFunction(){
-                    if (document.getElementById("mobileConfirmation").style.visibility === "hidden") {
-                        document.getElementById("mobileConfirmation").style.visibility="visible";
-                    } else {
-                        document.getElementById("mobileConfirmation").style.visibility="hidden";
-                    }                    
-                }
-        
+            }
+            
+            
+            //on transitionEnd of the previous action, start animation of button2
+            
+            //hide mobile confirmation text and initiate touchStart listener
+            document.getElementById("mobileConfirmation").style.visibility="hidden";
+            document.getElementById("mobileConfirmation").addEventListener("touchstart", myFunction);
+
+            //run this code when h2 element is touched.  Toggle off and on with subsequent touches
+            function myFunction(){
+                if (document.getElementById("mobileConfirmation").style.visibility === "hidden") {
+                    document.getElementById("mobileConfirmation").style.visibility="visible";
+                } else {
+                    document.getElementById("mobileConfirmation").style.visibility="hidden";
+                }                    
+            }
+
         </script>
         
     </body>
