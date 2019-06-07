@@ -39,7 +39,32 @@ and open the template in the editor.
                 Your browser does not support the <code>audio</code> tag.
             </audio>
         </div>
-            `
+        
+        <br>
+        <br>
+        <br>
+        
+        <h2>Canvas</h2>
+        
+        <div class="center">
+            <p>Drag this logo into the empty canvas</p>
+            <br>
+            <img id="logo" src="Logo.PNG" alt="Logo" width="200" height="200"/>
+            <br>
+            <canvas id="fillCanvas" width="250" height="250" style="border:3px solid #93eda5;"></canvas>
+            
+        </div>        
+        
+        <p><button class="htmlbutton" type="button" onclick="fillCanvas()">Do It!</button></p>
+        
+        <script>
+            function fillCanvas() {
+                var c = document.getElementById("fillCanvas");
+                var ctx = c.getContext("2d");
+                var img = document.getElementById("logo");
+                ctx.drawImage(img, 10, 5, 200, 200);
+            }
+        </script>
         
         <br>
         
