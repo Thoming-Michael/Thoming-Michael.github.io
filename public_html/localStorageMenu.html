@@ -54,12 +54,7 @@ and open the template in the editor.
             <p class="mobileConfirmation" id="mobileConfirmation">
               Thank you for confirming that you are using a mobile device
             </p>
-            
-            <br>
-            <input type="button" id="newButton" onclick="animateButtons()" 
-                        value="New Button"/>
-            <br>
-            
+                       
             <br>
             
             <input type="button" class="box" id="button1" onclick="window.location.href=
@@ -78,18 +73,10 @@ and open the template in the editor.
             window.onload = function() {
               document.documentElement.style.opacity = '1';
             };
-            
-            //When new button is clicked, make button1 transform/transition
-            function animateButtons() {
-                
-            }
-            
-            
-            //on transitionEnd of the previous action, start animation of button2
-            
+
             //hide mobile confirmation text and initiate touchStart listener
             document.getElementById("mobileConfirmation").style.visibility="hidden";
-            document.getElementById("touchEvent").addEventListener("touchstart", myFunction);
+            document.getElementById("touchEvent").ontouchstart = myFunction;
 
             //run this code when h2 element is touched.  Toggle off and on with subsequent touches
             function myFunction(){
