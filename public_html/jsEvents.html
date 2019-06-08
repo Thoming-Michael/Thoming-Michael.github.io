@@ -9,13 +9,107 @@ and open the template in the editor.
         <title>TODO supply a title</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <style>
+          .touchEvent {
+            color: red;
+          }
+          
+
+          html {
+            -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+            filter: alpha(opacity=0);
+            -moz-opacity: 0;
+            -khtml-opacity: 0;
+            opacity:0;
+            -webkit-transition: opacity 2s;
+            -moz-transition: opacity 2s;
+            -o-transition: opacity 2s;
+            -ms-transition: opacity 2s;
+            transition: opacity 2s;
+          }
+
+          .box img {
+              margin-left:0;
+              -webkit-transition: 1s;
+                      transition: 1s;
+          }
+          
+          
+        </style>
+        
     </head>
     <body>
-        <h1>Standard JS Events</h1>
-        //https://www.developphp.com/video/JavaScript/Start-Stop-CSS-keyframes-animation-with-JavaScript
-        
-        
-        <input type="button" onclick="window.location.href='https://thoming-michael.github.io/public_html/index.html';" value="Back to Main Menu"/>
 
+        <h1>See below for examples of JS Events onLoad, onTouchStart, and transitionEnd</h1>
+        <form>
+            
+            <br>
+            <h2 class="touchEvent" ontouchstart="myFunction()">Touch here if using a mobile device</h2>
+            <br>
+            
+            <p class="mobileConfirmation" id="mobileConfirmation">
+              Thank you for confirming that you are using a mobile device
+            </p>
+            
+            <br>
+            <br>
+            
+            <div class="box"><p>
+              Click this logo to make it move back-and-forth
+            </p>
+                <img id="move" src="http://placekitten.com/200/300" alt="Pic" />
+            </div>
+            
+            <br>
+            <br>
+            
+        </form>       
+        <br>
+        <input type="button" onclick="window.location.href='https://thoming-michael.github.io/public_html/index.html';" value="Back to Main Menu"/>
+        <script>
+            
+            //fade the screen into view onLoad
+            window.onload = function() {
+              document.documentElement.style.opacity = '1';
+            };
+            
+            //When new button is clicked, make button1 transform/transition
+            function animateButtons() {
+                
+            }
+            
+            
+            //on transitionEnd of the previous action, start animation of button2
+            
+            //hide mobile confirmation text and initiate touchStart listener
+            document.getElementById("mobileConfirmation").style.visibility="hidden";
+            document.getElementById("mobileConfirmation").addEventListener("touchstart", myFunction);
+
+            //run this code when h2 element is touched.  Toggle off and on with subsequent touches
+            function myFunction(){
+                if (document.getElementById("mobileConfirmation").style.visibility === "hidden") {
+                    document.getElementById("mobileConfirmation").style.visibility="visible";
+                } else {
+                    document.getElementById("mobileConfirmation").style.visibility="hidden";
+                }                    
+            }
+            
+            (function () {
+                var move = document.getElementById('move');
+
+                move.onclick = function () {
+
+                    if (move.style.marginLeft === "100px") {
+                        move.style.marginLeft = "0";
+
+                    } else {
+                        move.style.marginLeft = "100px";
+                    }
+                };
+            })();
+
+        </script>
+        
     </body>
 </html>

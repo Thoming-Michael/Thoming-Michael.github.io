@@ -29,7 +29,12 @@ and open the template in the editor.
             transition: opacity 2s;
           }
 
-
+          .box {
+            -webkit-transition:1s;
+          }
+          .box.clicked{
+            margin-left:50px;
+          }
           
           
         </style>
@@ -57,7 +62,7 @@ and open the template in the editor.
             
             <br>
             
-            <input type="button" id="button1" onclick="window.location.href=
+            <input type="button" class="box" id="button1" onclick="window.location.href=
                         'https://thoming-michael.github.io/public_html/localStorageArray.html';" 
                         value="Local Storage w/ Array"/>
             <input type="button" id="button2" onclick="window.location.href=
