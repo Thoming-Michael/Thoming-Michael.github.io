@@ -76,7 +76,7 @@ and open the template in the editor.
 
             //hide mobile confirmation text and initiate touchStart listener
             document.getElementById("mobileConfirmation").style.visibility="hidden";
-            document.getElementById("touchEvent").ontouchstart = myFunction;
+            document.getElementById("touchEvent").ontouchstart = myFunction();
 
             //run this code when h2 element is touched.  Toggle off and on with subsequent touches
             function myFunction(){
