@@ -49,7 +49,7 @@ and open the template in the editor.
             <h2 class="touchEvent" ontouchstart="mobileConfirmation()">Touch here if using a mobile device</h2>
             <br>
             
-            <p class="mobileConfirmation" id="mobileConfirmation">
+            <p id="mobileConfirmation">
               Thank you for confirming that you are using a mobile device
             </p>
             
@@ -81,7 +81,7 @@ and open the template in the editor.
 
             //hide mobile confirmation text and initiate touchStart listener
             document.getElementById("mobileConfirmation").style.visibility="hidden";
-            document.getElementById("mobileConfirmation").addEventListener("touchstart", mobileConfirmation);
+            document.getElementById("mobileConfirmation").addEventListener("ontouchstart", mobileConfirmation);
             
             //hide transitionEnd element and initiate transitionEnd listener
             document.getElementById("transitionEnd").style.visibility="hidden";
