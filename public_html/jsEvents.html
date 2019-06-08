@@ -45,7 +45,7 @@ and open the template in the editor.
         <form>
             
             <br>
-            <h2 class="touchEvent" ontouchstart="myFunction()">Touch here if using a mobile device</h2>
+            <h2 class="touchEvent" ontouchstart="mobileConfirmation()">Touch here if using a mobile device</h2>
             <br>
             
             <p class="mobileConfirmation" id="mobileConfirmation">
@@ -62,6 +62,10 @@ and open the template in the editor.
             </div>
             
             <br>
+            <p id="transitionEnd">This text appears when the transition has completed at least once</p>
+            <br>
+            
+            <br>
             <br>
             
         </form>       
@@ -73,26 +77,26 @@ and open the template in the editor.
             window.onload = function() {
               document.documentElement.style.opacity = '1';
             };
-            
-            //When new button is clicked, make button1 transform/transition
-            function animateButtons() {
-                
-            }
-            
-            
-            //on transitionEnd of the previous action, start animation of button2
-            
+
             //hide mobile confirmation text and initiate touchStart listener
             document.getElementById("mobileConfirmation").style.visibility="hidden";
-            document.getElementById("mobileConfirmation").addEventListener("touchstart", myFunction);
+            document.getElementById("mobileConfirmation").addEventListener("touchstart", mobileConfirmation);
+            
+            //hide transitionEnd element and initiate transitionEnd listener
+            document.getElementById("transitionEnd").style.visibility="hidden";
+            document.getElementById("move").addEventListener("transitionEnd", transitionEnd);
 
             //run this code when h2 element is touched.  Toggle off and on with subsequent touches
-            function myFunction(){
+            function mobileConfirmation(){
                 if (document.getElementById("mobileConfirmation").style.visibility === "hidden") {
                     document.getElementById("mobileConfirmation").style.visibility="visible";
                 } else {
                     document.getElementById("mobileConfirmation").style.visibility="hidden";
                 }                    
+            }
+            
+            function transitionEnd() {
+                document.getElementById("transitionEnd").style.visibility="visible";
             }
             
             (function () {
