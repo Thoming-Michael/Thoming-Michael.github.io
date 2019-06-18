@@ -76,7 +76,7 @@ and open the template in the editor.
                 min-width: 538px;
             }
             
-            .stage:hover .ball {
+            .stage:hover #ball {
                 animation-name: slide;
                 animation-duration: 3s;
                 animation-timing-function: ease-in-out;
@@ -85,7 +85,7 @@ and open the template in the editor.
                 animation-direction: alternate;
             }
             
-            .ball {
+            #ball {
                 background: #b02ab3;
                 border-radius: 60%;
                 height: 60px;
@@ -93,6 +93,14 @@ and open the template in the editor.
                 width: 60px;
             }            
             
+            .animate {
+                animation-name: slide;
+                animation-duration: 3s;
+                animation-timing-function: ease-in-out;
+                animation-delay: .2s;
+                animation-iteration-count: 2;
+                animation-direction: alternate;
+            }
             
             .transformObject {
                 background: blue;
