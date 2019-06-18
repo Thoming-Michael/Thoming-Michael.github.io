@@ -153,6 +153,7 @@ and open the template in the editor.
         <h2>Animation Example</h2>
         
         <input type="button" id="animation" onclick="animateObject('ball')" value="Move the Ball"/>
+        <input type="button" id="resetAnimation" onclick="resetAnimate('ball')" value="Reset"/>
         <br>
         <div class="stage">
             <figure class="ball" id="ball"></figure>
@@ -185,6 +186,11 @@ and open the template in the editor.
             function animateObject(el) {
                 var elem = document.getElementById(el);
                 elem.className = "animate";
+            }
+            
+            function resetAnimate(el) {
+                var elem = document.getElementById(el);
+                elem.className = "";
             }
             
             function transformObject(el) {
