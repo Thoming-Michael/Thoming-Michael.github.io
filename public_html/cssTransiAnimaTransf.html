@@ -143,13 +143,17 @@ and open the template in the editor.
         <br>
         <br>
         <h2>Animation Example</h2>
+        
+        <input type="button" id="animation" onclick="animateObject('ball')" value="Move the Ball"/>
         <br>
         <div class="stage">
-            <figure class="ball"></figure>
+            <figure class="ball" id="ball"></figure>
         </div>
         <br><br>
         <h2>Transform Example</h2>
-        <div class="transformObject"></div>
+        <input type="button" id="Transform" onclick="transformObject('transformObject')" value="Spin the Square"/>
+        <br>
+        <div class="transformObject" id="transformObject"></div>
         
         <br>       
         <input type="button" id="backButton" onclick="window.location.href='https://thoming-michael.github.io/public_html/index.html';" value="Back to Main Menu"/>
@@ -170,6 +174,13 @@ and open the template in the editor.
                 elem.style.animation = "pulse 1.5s linear infinite";
             }
             
+            function transformObject(el) {
+            	var elem = document.getElementById(el);
+                
+                if (elem.style.transform === "rotate(0deg)") {
+                    elem.style.transform = "rotate(900deg)";
+                } else elem.style.transform = "rotate(0deg)";
+            }            
         </script>
     </body>
 </html>
