@@ -149,6 +149,7 @@ and open the template in the editor.
             <div class="object4" id="object4"></div>
         </div>
         <br>
+        <br>
         <h2>Animation Example</h2>
         
         <input type="button" id="animation" onclick="animateObject('ball')" value="Move the Ball"/>
@@ -172,11 +173,13 @@ and open the template in the editor.
                 if (elem.style.transform === "translateX(0px)") {
                     elem.style.transform = "translateX(400px)";
                     elem.style.width = "200px";
-                    elem.style.height = "200px";                    
+                    elem.style.height = "200px";
+                    elem.style.background = "#b02ab3";                    
                 } else {
                     elem.style.transform = "translateX(0px)";
                     elem.style.width = "30px";
-                    elem.style.height = "30px";                    
+                    elem.style.height = "30px"; 
+                    elem.style.background = "#2ab36c";
                 }
                 elem.style.animation = "pulse 1.5s linear infinite";
             }
@@ -184,11 +187,19 @@ and open the template in the editor.
             function animateObject(el) {
                 var elem = document.getElementById(el);
                 elem.className = "animate";
+                elem.style.width = "100px";
+                elem.style.height = "100px";
+                elem.style.transition = "all 2s ease-in-out";
+                elem.style.background = "#b32a2d";
             }
             
             var ball = document.getElementById('ball');
             ball.addEventListener("animationend", () => {
             	ball.className = "";
+              ball.style.width = "60px";
+              ball.style.height = "60px";
+              ball.style.background = "#b02ab3";
+              ball.style.transition = "all 2s ease-in-out";
             });
             
             function transformObject(el) {
