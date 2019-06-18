@@ -127,17 +127,21 @@ and open the template in the editor.
         <p ontouchstart="touchFunction()">Touch this text to start the transition example.</p>
         
         <br>
-
+        <input type="button" id="transition" onclick="moveObject('object0')" value="Move Square 1"/>    
+        <input type="button" id="transition1" onclick="moveObject('object1')" value="Move Square 2"/>
+        <input type="button" id="transition2" onclick="moveObject('object2')" value="Move Square 3"/>
+        <input type="button" id="transition3" onclick="moveObject('object3')" value="Move Square 4"/>
+        <input type="button" id="transition4" onclick="moveObject('object4')" value="Move Square 5"/>
+        <br>
         <div class="group">
-            <div class="object0"></div>
-            <div class="object1"></div>
-            <div class="object2"></div>
-            <div class="object3"></div>
-            <div class="object4"></div>
+            <div class="object0" id="object0"></div>
+            <div class="object1" id="object1"></div>
+            <div class="object2" id="object2"></div>
+            <div class="object3" id="object3"></div>
+            <div class="object4" id="object4"></div>
         </div>
-        
-        
-        <br><br>
+        <br>
+        <br>
         <h2>Animation Example</h2>
         <br>
         <div class="stage">
@@ -150,5 +154,22 @@ and open the template in the editor.
         <br>       
         <input type="button" id="backButton" onclick="window.location.href='https://thoming-michael.github.io/public_html/index.html';" value="Back to Main Menu"/>
 
+        <script>
+            function moveObject(el) {
+                var elem = document.getElementById(el);
+                elem.style.transition = "all 2s linear";
+                if (elem.style.transform === "translateX(0px)") {
+                    elem.style.transform = "translateX(400px)";
+                    elem.style.width = "200px";
+                    elem.style.height = "200px";                    
+                } else {
+                    elem.style.transform = "translateX(0px)";
+                    elem.style.width = "30px";
+                    elem.style.height = "30px";                    
+                }
+                elem.style.animation = "pulse 1.5s linear infinite";
+            }
+            
+        </script>
     </body>
 </html>
