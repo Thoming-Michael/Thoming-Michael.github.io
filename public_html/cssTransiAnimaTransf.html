@@ -25,6 +25,10 @@ and open the template in the editor.
             }
             .group:hover .object, .group:hover .object0, .group:hover .object1, .group:hover .object2, .group:hover .object3, .group:hover .object4 {
                 transform: translateX(400px);
+                width: 200px;
+                height: 200px;
+                background: #b02ab3;
+                border-radius: 90%;
             }
 
             .object0 {
@@ -56,16 +60,41 @@ and open the template in the editor.
                 0% {
                     left: 0;
                     top: 0;
+                    border-radius: 90%;
+                    width: 60px;
+                    height: 60px;
+                }
+                
+                25% {
+                    left: 125px;
+                    top: 60px;
+                    border-radius: 45%;
+                    width: 100px;
+                    height: 100px;
                 }
                 
                 50% {
                     left: 250px;
                     top: 120px;
+                    border-radius: 0%;
+                    width: 200px;
+                    height: 200px;
+                }
+                
+                75% {
+                    left: 375px;
+                    top: 60px;
+                    border-radius: 45%;
+                    width: 100px;
+                    height: 100px;
+                    
                 }
                 
                 100% {
                     left: 500px;
                     top: 0;
+                    width: 60px;
+                    height: 60px;
                 }
             }
             
@@ -83,6 +112,11 @@ and open the template in the editor.
                 animation-delay: .2s;
                 animation-iteration-count: infinite;
                 animation-direction: alternate;
+                transition: all 6s ease-in-out;
+                width: 200px;
+                height: 200px;
+                background: #2ab36c;
+                border-radius: 0%;
             }
             
             #ball {
@@ -105,15 +139,20 @@ and open the template in the editor.
             .transformObject {
                 background: blue;
                 border-radius: 15px;
-                height: 120px;
+                height: 60px;
                 margin-left: 200px;
                 transform-origin: right top;
                 transition: transform 4s;
-                width: 120px;
+                width: 60px;
+                transition: all 3s ease-in-out;
             }
             
             .transformObject:hover {
                 transform: rotate(900deg);
+                background: #b02ab3;
+                height: 120px;
+                width: 120px;
+                border-radius: 0px;
             }
                      
         </style>
