@@ -16,7 +16,7 @@ and open the template in the editor.
                 background: #8E0E00;
 
                 background: -webkit-linear-gradient(to left, #8E0E00, #1F1C18);
-                background: linear-gradient(to left, #8E0E00, #1F1C18);
+                background: linear-gradient(to left, #1F1C18, #2a2db3);
               }
 
               #container {
@@ -31,7 +31,7 @@ and open the template in the editor.
               }
 
               h1 {
-                background: #1F030C;
+                background: linear-gradient(to left, #2a2db3, #1F1C18);;
                 color: white;
                 margin: 0;
                 padding: 10px 100px;
@@ -136,20 +136,33 @@ and open the template in the editor.
 
 
         <form>
-          <p>How much was your income?
+            <p>Donor Info:</p>
             <p>
-              $ <input id="dollaramt" type="text" placeholder="Dollar Amount">
+                Date: <input id="date" type="text" placeholder="Date (MM/DD/YYYY)">
+            </p>
+            <p>
+                Name: <input id="name" type="text" placeholder="Name (Last, First MI)">
+            </p>    
+            <p>
+                Ward/Unit: <input id="ward" type="text">
+            </p>
+            
+            <p id = "displayJSON1"></p>
+            <p id = "displayJSON2"></p>
+            <p>How much was your income?</p>
+            <p>
+              $ <input id="dollaramt" type="text" placeholder="Dollar Amount"></p>
 
-              <p>Select your donation(s)
+              <p>Select your donation(s)</p>
                 <p>
-                  <select id="tithingPct">
-                <option disabled selected value="0">-- Choose an Option --</option>
-                <option value="0.18">18&#37; &#45; Add to Missionary Fund</option>
-                <option value="0.14">14&#37; &#45; Add Double Fast-Off</option>
-                <option value="0.12">12&#37; &#45; Add Fast-Offering</option>
-                <option value="0.1">10&#37; &#45; Standard Tithing</option>
-            </select>
-
+                    <select id="tithingPct">
+                        <option disabled selected value="0">-- Choose an Option --</option>
+                        <option value="0.18">18&#37; &#45; Add to Missionary Fund</option>
+                        <option value="0.14">14&#37; &#45; Add Double Fast-Off</option>
+                        <option value="0.12">12&#37; &#45; Add Fast-Offering</option>
+                        <option value="0.1">10&#37; &#45; Standard Tithing</option>
+                    </select>
+                </p>
         </form>
         <button type="button" id="calculate">Calculate!</button>
 
@@ -169,11 +182,24 @@ and open the template in the editor.
     <script>
                 //Calculate Tithing
         function calculateTithing() {
-          var billAmt = document.getElementById("dollaramt").value;
+          var date = document.getElementById("date").value;
+          var name = document.getElementById("name").value;
+          var ward = document.getElementById("ward").value;
+          var incomeAmt = document.getElementById("dollaramt").value;
           var tithingPct = document.getElementById("tithingPct").value;
+          var donorInfo = {date:date, name:name, ward:ward, incomeAmt:incomeAmt, tithingPct:tithingPct};
+          var jsonDonorInfo = JSON.stringify(donorInfo);
+          
+          document.getElementById("displayJSON1").innerHTML = "From variable: " + jsonDonorInfo;
+          
+          localStorage.setItem("donorInfo", jsonDonorInfo);
+          
+          document.getElementById("displayJSON2").innerHTML = "From local storage: " + localStorage.getItem("donorInfo");
+          
+          
 
           //validate input
-          if (billAmt === "" || tithingPct === 0) {
+          if (incomeAmt === "" || tithingPct === 0) {
             alert("Please enter values");
             return;
           }
@@ -181,7 +207,7 @@ and open the template in the editor.
 
 
           //Calculate tithing
-          var total = (billAmt * tithingPct);
+          var total = (incomeAmt * tithingPct);
           //round to two decimal places
           total = Math.round(total * 100) / 100;
           //next line allows us to always have two digits after decimal point
