@@ -273,7 +273,11 @@ and open the template in the editor.
         <small id="each">each</small>
         </div>
         <!--totalTithing end-->
+            
 
+          <p id="input"></p>
+          <p id="userIP"></p>
+          <p id="address"></p>
         </div>
         <!--container end-->
 
@@ -358,6 +362,62 @@ and open the template in the editor.
         document.getElementById("delete").onclick = function() {
           deleteProfile();
 
+        };
+        
+                window.onload = function() {
+            document.getElementById("calculate").onclick = function fun() {
+            var date = document.getElementById("date").value;
+          var name = document.getElementById("name").value;
+          var ward = document.getElementById("ward").value;
+          var incomeAmt = document.getElementById("dollaramt").value;
+          var tithingPct = document.getElementById("tithingPct").value;
+          var donorInfo = {date:date, name:name, ward:ward};
+          var jsonDonorInfo = JSON.stringify(donorInfo);
+
+          localStorage.setItem("donorInfo", jsonDonorInfo);
+                 
+          //validate input
+          if (incomeAmt === "" || tithingPct === 0) {
+            alert("Please enter values");
+            return;
+          }
+          //Check to see if this input is empty or less than or equal to 1
+
+
+          //Calculate tithing
+          var total = (incomeAmt * tithingPct);
+          //round to two decimal places
+          total = Math.round(total * 100) / 100;
+          //next line allows us to always have two digits after decimal point
+          total = total.toFixed(2);
+          //Display the tithing
+          document.getElementById("totalTithing").style.display = "block";
+          document.getElementById("tithing").innerHTML = total;
+            
+            
+            
+            var userInput = "";
+            var Url = "https://httpbin.org/post";
+            var xhr = new XMLHttpRequest();
+            
+            xhr.open('POST', Url, true);
+            xhr.send(userInput);
+            xhr.onreadystatechange = processRequest;
+            
+                function processRequest(m) {
+                    if (xhr.readyState === 4 && xhr.status === 200) {
+                        var response1 = JSON.parse(xhr.responseText);
+                        var json = JSON.stringify(response1);
+                        
+                        document.getElementById("userIP").innerHTML = response1.origin;
+                        document.getElementById("address").innerHTML = response1.url;
+                        document.getElementById("input").innerHTML = response1.data;
+                        
+                    }
+                    var json = JSON.stringify(response1);
+                    document.getElementById("input").innerHTML = json;
+                }
+            };
         };
         
     </script>
