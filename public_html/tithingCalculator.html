@@ -397,10 +397,10 @@ and open the template in the editor.
             
             
             var userInput = "";
-            var Url = "https://httpbin.org/post";
+            var Url = "https://jsonplaceholder.typicode.com/todos/1";
             var xhr = new XMLHttpRequest();
             
-            xhr.open('POST', Url, true);
+            xhr.open('GET', Url, true);
             xhr.send(userInput);
             xhr.onreadystatechange = processRequest;
             
@@ -408,11 +408,7 @@ and open the template in the editor.
                     if (xhr.readyState === 4 && xhr.status === 200) {
                         var response1 = JSON.parse(xhr.responseText);
                         var json = JSON.stringify(response1);
-                        
-                        document.getElementById("userIP").innerHTML = response1.origin;
-                        document.getElementById("address").innerHTML = response1.url;
-                        document.getElementById("input").innerHTML = response1.data;
-                        
+                                                
                     }
                     var json = JSON.stringify(response1);
                     document.getElementById("input").innerHTML = json;
