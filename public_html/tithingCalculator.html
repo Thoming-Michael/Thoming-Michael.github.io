@@ -134,6 +134,22 @@ and open the template in the editor.
                 display: block;
               }
               
+              #savedProfile {
+                font-size: 15px;
+                margin-top: 5px;
+                text-align: center;
+              }
+              
+              #savedProfile sup {
+                font-size: 15px;
+                top: -18px;
+              }
+              
+              #savedProfile small {
+                font-size: 15px;
+                display: block;
+              }
+                            
               #load:hover {
                 background: #00ffff;
 
@@ -249,6 +265,7 @@ and open the template in the editor.
                 Ward/Unit: <input id="ward" type="text">
             </p>
 
+
             <p>How much was your income?</p>
             <p>
               $ <input id="dollaramt" type="text" placeholder="Dollar Amount"></p>
@@ -265,12 +282,15 @@ and open the template in the editor.
                 </p>
         </form>
         <button type="button" id="calculate">Calculate!</button>
-
+        
+        
         </div>
         <!--calculator end-->
         <div id="totalTithing">
+        
         <sup>$</sup><span id="tithing">0.00</span>
         <small id="each">each</small>
+        <p id="savedProfile"></p>
         </div>
         <!--totalTithing end-->
             
@@ -283,39 +303,7 @@ and open the template in the editor.
 
         <script type="text/javascript" src="tithingcalculator.js"></script>
 
-    <script>
-                //Calculate Tithing
-        function calculateTithing() {
-          var date = document.getElementById("date").value;
-          var name = document.getElementById("name").value;
-          var ward = document.getElementById("ward").value;
-          var incomeAmt = document.getElementById("dollaramt").value;
-          var tithingPct = document.getElementById("tithingPct").value;
-          var donorInfo = {date:date, name:name, ward:ward};
-          var jsonDonorInfo = JSON.stringify(donorInfo);
-
-          localStorage.setItem("donorInfo", jsonDonorInfo);
-                 
-          //validate input
-          if (incomeAmt === "" || tithingPct === 0) {
-            alert("Please enter values");
-            return;
-          }
-          //Check to see if this input is empty or less than or equal to 1
-
-
-          //Calculate tithing
-          var total = (incomeAmt * tithingPct);
-          //round to two decimal places
-          total = Math.round(total * 100) / 100;
-          //next line allows us to always have two digits after decimal point
-          total = total.toFixed(2);
-          //Display the tithing
-          document.getElementById("totalTithing").style.display = "block";
-          document.getElementById("tithing").innerHTML = total;
-
-        }
-        
+    <script>        
         function loadProfile() {
         	var donorProfile = localStorage.getItem("donorInfo");
           var displayProfile = JSON.parse(donorProfile);
@@ -346,75 +334,78 @@ and open the template in the editor.
         //click to call function
         document.getElementById("calculate").onclick = function() {
           calculateTithing();
-
         };
         
         document.getElementById("load").onclick = function() {
           loadProfile();
-
         };
         
         document.getElementById("clear").onclick = function() {
           clearFields();
-
         };
         
         document.getElementById("delete").onclick = function() {
           deleteProfile();
-
         };
         
-                window.onload = function() {
+        window.onload = function() {
             document.getElementById("calculate").onclick = function fun() {
-            var date = document.getElementById("date").value;
-          var name = document.getElementById("name").value;
-          var ward = document.getElementById("ward").value;
-          var incomeAmt = document.getElementById("dollaramt").value;
-          var tithingPct = document.getElementById("tithingPct").value;
-          var donorInfo = {date:date, name:name, ward:ward};
-          var jsonDonorInfo = JSON.stringify(donorInfo);
+                var date = document.getElementById("date").value;
+                var name = document.getElementById("name").value;
+                var ward = document.getElementById("ward").value;
+                
+              	var userProfile1 = new UserProfile(name, date, ward);
+        
+        				document.getElementById("savedProfile").innerHTML = "Saved Profile: "+userProfile1.date+", "+userProfile1.name+", "+userProfile1.ward;
+                
+                var incomeAmt = document.getElementById("dollaramt").value;
+                var tithingPct = document.getElementById("tithingPct").value;
+                var donorInfo = {date:date, name:name, ward:ward};
+                var jsonDonorInfo = JSON.stringify(donorInfo);
 
-          localStorage.setItem("donorInfo", jsonDonorInfo);
-                 
-          //validate input
-          if (incomeAmt === "" || tithingPct === 0) {
-            alert("Please enter values");
-            return;
-          }
-          //Check to see if this input is empty or less than or equal to 1
+                localStorage.setItem("donorInfo", jsonDonorInfo);
 
+                  //validate input
+                if (incomeAmt === "" || tithingPct === 0) {
+                    alert("Please enter values");
+                    return;
+                }
 
-          //Calculate tithing
-          var total = (incomeAmt * tithingPct);
-          //round to two decimal places
-          total = Math.round(total * 100) / 100;
-          //next line allows us to always have two digits after decimal point
-          total = total.toFixed(2);
-          //Display the tithing
-          document.getElementById("totalTithing").style.display = "block";
-          document.getElementById("tithing").innerHTML = total;
-            
-            
-            
-            var userInput = "";
-            var Url = "https://jsonplaceholder.typicode.com/todos/1";
-            var xhr = new XMLHttpRequest();
-            
-            xhr.open('GET', Url, true);
-            xhr.send(userInput);
-            xhr.onreadystatechange = processRequest;
-            
+                //Calculate tithing
+                var total = (incomeAmt * tithingPct);
+                //round to two decimal places
+                total = Math.round(total * 100) / 100;
+                //next line allows us to always have two digits after decimal point
+                total = total.toFixed(2);
+                //Display the tithing
+                document.getElementById("totalTithing").style.display = "block";
+                document.getElementById("tithing").innerHTML = total;          
+
+                var userInput = "";
+                var Url = "https://jsonplaceholder.typicode.com/todos/1";
+                var xhr = new XMLHttpRequest();
+
+                xhr.open('GET', Url, true);
+                xhr.send(userInput);
+                xhr.onreadystatechange = processRequest;
+
                 function processRequest(m) {
                     if (xhr.readyState === 4 && xhr.status === 200) {
                         var response1 = JSON.parse(xhr.responseText);
                         var json = JSON.stringify(response1);
-                                                
+
                     }
                     var json = JSON.stringify(response1);
-                    document.getElementById("input").innerHTML = json;
+                    document.getElementById("input").innerHTML = response1.title;
                 }
             };
         };
+        
+        function UserProfile(name, date, ward) {
+        	this.name = name;
+          this.date = date;
+          this.ward = ward;
+        }
         
     </script>
         
