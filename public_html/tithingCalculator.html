@@ -382,7 +382,7 @@ and open the template in the editor.
                 document.getElementById("tithing").innerHTML = total;          
 
                 var userInput = "";
-                var Url = "https://jsonplaceholder.typicode.com/todos/1";
+                var Url = "http://quotes.stormconsultancy.co.uk/random.json";
                 var xhr = new XMLHttpRequest();
 
                 xhr.open('GET', Url, true);
@@ -393,10 +393,9 @@ and open the template in the editor.
                     if (xhr.readyState === 4 && xhr.status === 200) {
                         var response1 = JSON.parse(xhr.responseText);
                         var json = JSON.stringify(response1);
-
+												document.getElementById("input").innerHTML = response1.quote;
                     }
-                    var json = JSON.stringify(response1);
-                    document.getElementById("input").innerHTML = response1.title;
+                    
                 }
             };
         };
