@@ -295,8 +295,8 @@ and open the template in the editor.
         <!--totalTithing end-->
             
 
-          <p id="input"></p>
-          <p id="userIP"></p>
+          <p id="quote"></p>
+          <p id="author"></p>
           <p id="address"></p>
         </div>
         <!--container end-->
@@ -382,7 +382,8 @@ and open the template in the editor.
                 document.getElementById("tithing").innerHTML = total;          
 
                 var userInput = "";
-                var Url = "https://quotes.stormconsultancy.co.uk/random.json";
+                var Url = "https://favqs.com/api/qotd";
+                //"https://thesimpsonsquoteapi.glitch.me/quotes";
                 var xhr = new XMLHttpRequest();
 
                 xhr.open('GET', Url, true);
@@ -393,7 +394,8 @@ and open the template in the editor.
                     if (xhr.readyState === 4 && xhr.status === 200) {
                         var response1 = JSON.parse(xhr.responseText);
                         var json = JSON.stringify(response1);
-                        document.getElementById("input").innerHTML = response1.quote;
+                        document.getElementById("quote").innerHTML = response1.quote.body;
+                        document.getElementById("author").innerHTML = response1.quote.author;
                     }
                     
                 }
