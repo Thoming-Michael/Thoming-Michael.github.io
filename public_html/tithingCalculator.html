@@ -13,8 +13,7 @@ and open the template in the editor.
         <style>
             body {
                 font-family: Roboto;
-                background: #1F1C18;
-                
+                background: #1F1C18;                
                 animation: color-me-in 5s infinite;
               }
               
@@ -38,8 +37,7 @@ and open the template in the editor.
               
               #quote:hover {
                 background: #c8c0b7;
-                animation: animateQuote 5s infinite;
-                
+                animation: animateQuote 5s infinite;                
               }
               
               @keyframes animateQuote {
@@ -167,16 +165,14 @@ and open the template in the editor.
                 border-bottom-color: #111;
                 transition: all 1s;
                 transform: scale(1.2);
-                border-radius: 90%;
-                
+                border-radius: 90%;                
               }
               
               button {transition: all .2s ease-in-out;}
 
               button:active {
                 position: relative;
-                top: 1px;
-                
+                top: 1px;                
               }
 
               #totalTithing {
@@ -222,7 +218,6 @@ and open the template in the editor.
                             
               #load:hover {
                 background: #00ffff;
-
                 transition: all 1s;
                 transform: scale(1.2);
                 margin-left: 10px;
@@ -233,7 +228,6 @@ and open the template in the editor.
               
               #clear:hover {
                 background: #00ffff;
-
                 transition: all 1s;
                 transform: scale(1.2);
                 margin-left: 10px;
@@ -244,7 +238,6 @@ and open the template in the editor.
               
               #delete:hover {
                 background: #00ffff;
-
                 transition: all 1s;
                 transform: scale(1.2);
                 margin-left: 10px;
@@ -255,7 +248,6 @@ and open the template in the editor.
               
               #date:hover {
                 background: #00ffff;
-
                 transition: all 1s;
                 transform: scale(1.2);
                 margin-left: 10px;
@@ -266,7 +258,6 @@ and open the template in the editor.
               
               #name:hover {
                 background: #00ffff;
-
                 transition: all 1s;
                 transform: scale(1.2);
                 margin-left: 10px;
@@ -277,7 +268,6 @@ and open the template in the editor.
               
               #ward:hover {
                 background: #00ffff;
-
                 transition: all 1s;
                 transform: scale(1.2);
                 margin-left: 10px;
@@ -288,7 +278,6 @@ and open the template in the editor.
               
               #dollaramt:hover {
                 background: #00ffff;
-
                 transition: all 1s;
                 transform: scale(1.2);
                 margin-left: 10px;
@@ -299,7 +288,6 @@ and open the template in the editor.
               
               #tithingPct:hover {
                 background: #00ffff;
-
                 transition: all 1s;
                 transform: scale(1.1);
                 margin-left: 10px;
@@ -315,7 +303,6 @@ and open the template in the editor.
         <div id="container">
         <h1>Tithing Calculator</h1>
         <div id="calculator">
-
 
         <form>
             <p>Donor Info:</p>
@@ -334,7 +321,6 @@ and open the template in the editor.
                 Ward/Unit: <input id="ward" type="text">
             </p>
 
-
             <p>How much was your income?</p>
             <p>
               $ <input id="dollaramt" type="text" placeholder="Dollar Amount"></p>
@@ -350,8 +336,7 @@ and open the template in the editor.
                     </select>
                 </p>
         </form>
-        <button type="button" id="calculate">Calculate!</button>
-        
+        <button type="button" id="calculate">Calculate!</button>      
         
         </div>
         <!--calculator end-->
@@ -361,8 +346,7 @@ and open the template in the editor.
         <small id="each">each</small>
         <p id="savedProfile"></p>
         </div>
-        <!--totalTithing end-->
-            
+        <!--totalTithing end-->            
 
           <p id="quote"></p>
           <p id="author"></p>
@@ -372,26 +356,25 @@ and open the template in the editor.
 
     <script>        
         function loadProfile() {
-        	var donorProfile = localStorage.getItem("donorInfo");
-          var displayProfile = JSON.parse(donorProfile);
+            var donorProfile = localStorage.getItem("donorInfo");
+            var displayProfile = JSON.parse(donorProfile);
           
-          document.getElementById("date").value = displayProfile["date"];
-          document.getElementById("name").value = displayProfile["name"];
-          document.getElementById("ward").value = displayProfile["ward"];
+            document.getElementById("date").value = displayProfile["date"];
+            document.getElementById("name").value = displayProfile["name"];
+            document.getElementById("ward").value = displayProfile["ward"];
         }
         
         function clearFields() {
-          document.getElementById("date").value = "";
-          document.getElementById("name").value = "";
-          document.getElementById("ward").value = "";
+            document.getElementById("date").value = "";
+            document.getElementById("name").value = "";
+            document.getElementById("ward").value = "";
         }
         
         function deleteProfile() {
-        	localStorage.clear();
-          
-          document.getElementById("date").value = "";
-          document.getElementById("name").value = "";
-          document.getElementById("ward").value = "";
+            localStorage.clear();          
+            document.getElementById("date").value = "";
+            document.getElementById("name").value = "";
+            document.getElementById("ward").value = "";
         }
 
         //Hide the tithing amount on load
@@ -419,12 +402,9 @@ and open the template in the editor.
             document.getElementById("calculate").onclick = function fun() {
                 var date = document.getElementById("date").value;
                 var name = document.getElementById("name").value;
-                var ward = document.getElementById("ward").value;
-                
+                var ward = document.getElementById("ward").value;       
               	var userProfile1 = new UserProfile(name, date, ward);
-        
-        				document.getElementById("savedProfile").innerHTML = "Saved Profile: "+userProfile1.date+", "+userProfile1.name+", "+userProfile1.ward;
-                
+        	document.getElementById("savedProfile").innerHTML = "Saved Profile: "+userProfile1.date+", "+userProfile1.name+", "+userProfile1.ward;
                 var incomeAmt = document.getElementById("dollaramt").value;
                 var tithingPct = document.getElementById("tithingPct").value;
                 var donorInfo = {date:date, name:name, ward:ward};
@@ -449,7 +429,7 @@ and open the template in the editor.
                 document.getElementById("tithing").innerHTML = total;          
 
                 var userInput = "";
-                var Url = "https://favqs.com/api/qotd"
+                var Url = "https://favqs.com/api/qotd";
                 //"https://thesimpsonsquoteapi.glitch.me/quotes";
                 var xhr = new XMLHttpRequest();
 
