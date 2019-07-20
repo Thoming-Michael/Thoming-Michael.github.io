@@ -13,10 +13,55 @@ and open the template in the editor.
         <style>
             body {
                 font-family: Roboto;
-                background: #8E0E00;
-
-                background: -webkit-linear-gradient(to left, #8E0E00, #1F1C18);
-                background: linear-gradient(to left, #1F1C18, #2a2db3);
+                background: #1F1C18;
+                
+                animation: color-me-in 5s infinite;
+              }
+              
+              @keyframes color-me-in {
+                0% {
+                  background: #2a2db3;
+                }
+                25% {
+                  background: #4547d3;
+                }
+                50% {
+                  background: #8385e2;
+                }
+                75% {
+                  background: #c1c2f0;
+                }
+                100%{
+                  background: #2a2db3;
+                }
+              }
+              
+              #quote:hover {
+                background: #c8c0b7;
+                animation: animateQuote 5s infinite;
+                
+              }
+              
+              @keyframes animateQuote {
+                0% {
+                  background: #f7f7f7;
+                  color: black;
+                  }
+                25% {
+                  background: #c8c0b7;
+                  color: black;
+                }
+                50%{
+                  background: #2b2721;
+                  color: white;
+                }
+                75%{
+                  background: #c8c0b7;
+                  color: black;
+                }
+                100% {
+                  background: #f7f7f7;
+                  }
               }
 
               #container {
@@ -31,7 +76,8 @@ and open the template in the editor.
               }
 
               h1 {
-                background: linear-gradient(to left, #2a2db3, #1F1C18);;
+                background: #1F1C18;
+                animation: change-header 5s infinite;
                 color: white;
                 margin: 0;
                 padding: 10px 100px;
@@ -41,13 +87,37 @@ and open the template in the editor.
                 border-top-left-radius: 20px;
                 border-top-right-radius: 20px;
               }
+              
+              @keyframes change-header {
+                0% {
+                  background: #1F1C18;
+                  padding: 10px 100px;
+                  font-size: 18px;
+                  border-top-left-radius: 20px;
+                  border-top-right-radius: 20px;
+                }
+                50% {
+                  background: #2a2db3;
+                  padding: 15px 110px;
+                  font-size: 18px;
+                  border-top-left-radius: 20px;
+                  border-top-right-radius: 20px;
+                }
+                100% {
+                  background: #1F1C18;
+                  padding: 10px 100px;
+                  font-size: 18px;
+                  border-top-left-radius: 20px;
+                  border-top-right-radius: 20px;
+                }
+              }
 
               p {
                 padding-left: 20px;
               }
 
               form input[type="text"] {
-                width=90px;
+                width: 90px;
               }
 
               input {
@@ -238,7 +308,6 @@ and open the template in the editor.
               #tithingPct {transition: all .2s ease-in-out;}
               
               
-              
         </style>
         
     </head>
@@ -300,8 +369,6 @@ and open the template in the editor.
           <p id="address"></p>
         </div>
         <!--container end-->
-
-        <script type="text/javascript" src="tithingcalculator.js"></script>
 
     <script>        
         function loadProfile() {
